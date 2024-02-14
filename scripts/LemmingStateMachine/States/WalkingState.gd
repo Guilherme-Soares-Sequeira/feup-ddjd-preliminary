@@ -27,13 +27,15 @@ func physics_update():
 		
 	if (lemming.is_on_wall()):
 		if (jump_or_turn()):
-			# Change to jumping state
+			exit.emit(JumpingState.new(lemming))
 			return
 	
 	lemming.velocity.x = lemming.SPEED * lemming.direction.x	
 
 func onEnter():
+	print("Entered WalkingState")
 	pass
 
 func onExit():
+	print("Exited WalkingState")	
 	pass

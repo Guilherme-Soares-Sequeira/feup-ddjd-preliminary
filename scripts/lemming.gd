@@ -12,26 +12,22 @@ class_name Lemming extends CharacterBody2D
 
 #var state_machine: StateMachine = StateMachine.new()
 
-const SPEED: float = 200.0
+const SPEED: float = 100.0
 const jump_force: float = -750.0
 
 @onready var collider_right: Area2D = %ColliderRight
 @onready var collider_left: Area2D = %ColliderLeft
 
+var initial_state: State = WalkingState.new(self)
+var state_machine: StateMachine = StateMachine.new(initial_state)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 18
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
-
-func move_horizontally():
-	velocity.x = direction.x * SPEED
+func _process(_delta):
+	state_machine.update()
 
 func _physics_process(delta):
-	
-	if not is_on_floor():
-		velocity.y = gravity * delta
-	else:
-		move_horizontally()
-	
+	state_machine.physics_update()
 	move_and_slide()
 	
