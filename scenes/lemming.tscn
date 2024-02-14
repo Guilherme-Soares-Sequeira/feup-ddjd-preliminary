@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1tk2rq35fbjq"]
+
+[ext_resource type="Texture2D" uid="uid://daldwv6ltwp3n" path="res://icon.svg" id="1_1ns1o"]
+[ext_resource type="Script" path="res://scripts/lemming.gd" id="1_sa0g2"]
+[ext_resource type="PackedScene" uid="uid://608mxvssm000" path="res://scenes/collider.tscn" id="3_1cydb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvmn3"]
+size = Vector2(128, 128)
+
+[node name="Lemming" type="CharacterBody2D"]
+script = ExtResource("1_sa0g2")
+
+[node name="MainBody" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_kvmn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="MainBody"]
+texture = ExtResource("1_1ns1o")
+
+[node name="ColliderRight" parent="." instance=ExtResource("3_1cydb")]
+unique_name_in_owner = true
+position = Vector2(6, -194)
+
+[node name="ColliderLeft" parent="." instance=ExtResource("3_1cydb")]
+unique_name_in_owner = true
+position = Vector2(-6, -194)

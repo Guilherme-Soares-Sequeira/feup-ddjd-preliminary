@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://duvb86fuyqh86"]
+
+[ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="1_3mnvc"]
+[ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="2_jtuy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3js6h"]
+size = Vector2(901, 100.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7nhr"]
+
+[node name="World" type="Node2D"]
+
+[node name="Lemming" parent="." instance=ExtResource("1_3mnvc")]
+position = Vector2(524, 253)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(587, 517)
+shape = SubResource("RectangleShape2D_3js6h")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+modulate = Color(0.47451, 0.368627, 1, 1)
+position = Vector2(587, 517)
+scale = Vector2(900, 100)
+mesh = SubResource("QuadMesh_f7nhr")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_jtuy7")]
+position = Vector2(770, 403)
