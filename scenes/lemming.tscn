@@ -8,6 +8,7 @@
 size = Vector2(128, 128)
 
 [node name="Lemming" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_sa0g2")
 
 [node name="MainBody" type="CollisionShape2D" parent="."]
