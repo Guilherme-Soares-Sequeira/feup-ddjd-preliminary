@@ -1,12 +1,15 @@
 extends Node
 class_name State 
 
-signal exit(new_state: State)
+signal exit_state(new_state: State)
 
 var lemming: Lemming
 
 func _init(_lemming: Lemming):
 	lemming = _lemming
+
+func handle_left_click():
+	pass
 
 func update():
 	pass

@@ -9,7 +9,7 @@ func update():
 	
 func physics_update():
 	if (lemming.is_on_floor()):
-		exit.emit(WalkingState.new(lemming))
+		exit_state.emit(WalkingState.new(lemming))
 		return
 	
 	lemming.velocity.y = lemming.gravity / 1.4

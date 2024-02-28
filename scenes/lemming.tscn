@@ -24,3 +24,5 @@ position = Vector2(6, -194)
 [node name="ColliderLeft" parent="." instance=ExtResource("3_1cydb")]
 unique_name_in_owner = true
 position = Vector2(-6, -194)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
