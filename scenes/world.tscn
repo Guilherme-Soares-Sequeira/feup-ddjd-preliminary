@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://duvb86fuyqh86"]
+[gd_scene load_steps=7 format=3 uid="uid://duvb86fuyqh86"]
 
 [ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="1_3mnvc"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_ytbfc"]
 [ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="2_jtuy7"]
+[ext_resource type="PackedScene" uid="uid://ckyfsfegx2hhi" path="res://scenes/grass.tscn" id="3_5tb4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3js6h"]
 size = Vector2(901, 100.5)
@@ -9,6 +11,7 @@ size = Vector2(901, 100.5)
 [sub_resource type="QuadMesh" id="QuadMesh_f7nhr"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_ytbfc")
 
 [node name="Lemming" parent="." instance=ExtResource("1_3mnvc")]
 position = Vector2(524, 253)
@@ -30,5 +33,5 @@ mesh = SubResource("QuadMesh_f7nhr")
 [node name="StaticBody2D" parent="." instance=ExtResource("2_jtuy7")]
 position = Vector2(770, 403)
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("2_jtuy7")]
-position = Vector2(771, 273)
+[node name="Grass" parent="." instance=ExtResource("3_5tb4c")]
+position = Vector2(898, 403)

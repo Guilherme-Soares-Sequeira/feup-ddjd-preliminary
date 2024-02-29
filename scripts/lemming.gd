@@ -44,8 +44,6 @@ func _ready():
 	
 	self.set_pickable(true) # Allows the lemming to be clicked
 
-
-
 func is_mouse_left_click(event: InputEvent):
 	if not (event is InputEventMouseButton):
 		return false
