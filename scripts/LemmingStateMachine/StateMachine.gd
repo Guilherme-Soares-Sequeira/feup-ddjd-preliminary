@@ -18,9 +18,9 @@ func update():
 	if not current_state: return
 	current_state.update()
 	
-func physics_update():
+func physics_update(delta: float):
 	if not current_state: return
-	current_state.physics_update()
+	current_state.physics_update(delta)
 
 func transition_to(state: State):
 	if current_state:

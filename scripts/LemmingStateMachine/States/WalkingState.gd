@@ -1,8 +1,8 @@
 extends State
 class_name WalkingState
 
-func _init(lemming: Lemming):
-	super(lemming)
+#func _init(lemming: Lemming) -> void:
+#	super(lemming)
 	
 func handle_left_click():
 	exit_state.emit(JumpingState.new(lemming)) # place holder, test
@@ -21,7 +21,7 @@ func jump_or_turn() -> bool:
 func update():
 	pass
 	
-func physics_update():
+func physics_update(_delta: float):
 	if (not lemming.is_on_floor()):
 		exit_state.emit(FallingState.new(lemming))
 		return
@@ -31,7 +31,7 @@ func physics_update():
 			exit_state.emit(JumpingState.new(lemming))
 			return
 	
-	lemming.velocity.x = lemming.speed * lemming.direction.x	
+	lemming.velocity.x = lemming.speed * lemming.direction.x
 
 func onEnter():
 	print("Entered WalkingState")

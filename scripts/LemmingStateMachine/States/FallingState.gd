@@ -1,13 +1,13 @@
 extends State
 class_name FallingState
 
-func _init(lemming: Lemming):
-	super(lemming)
+#func _init(lemming: Lemming) -> void:
+#	super(lemming)
 
 func update():
 	pass
 	
-func physics_update():
+func physics_update(_delta: float):
 	if (lemming.is_on_floor()):
 		exit_state.emit(WalkingState.new(lemming))
 		return
@@ -18,6 +18,7 @@ func physics_update():
 func onEnter():
 	print("Entered FallingState")
 	lemming.direction.y = 1
+	lemming.velocity.x = 0
 	pass
 
 func onExit():

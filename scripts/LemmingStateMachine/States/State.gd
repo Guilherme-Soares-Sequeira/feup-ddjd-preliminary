@@ -14,7 +14,7 @@ func handle_left_click():
 func update():
 	pass
 	
-func physics_update():
+func physics_update(_delta: float):
 	pass
 
 func onEnter():

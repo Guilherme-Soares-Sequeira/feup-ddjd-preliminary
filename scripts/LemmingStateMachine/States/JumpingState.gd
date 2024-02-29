@@ -3,8 +3,8 @@ class_name JumpingState
 
 var yspeed: float
 
-func _init(lemming: Lemming):
-	super(lemming)
+#func _init(lemming: Lemming) -> void:
+#	super(lemming)
 
 func jump() -> void:
 	yspeed = lemming.jump_force
@@ -15,7 +15,7 @@ func handle_left_click():
 func update():
 	pass
 	
-func physics_update():
+func physics_update(_delta: float):
 	if (lemming.is_on_floor() && yspeed >= 0):
 		exit_state.emit(WalkingState.new(lemming))
 		return
