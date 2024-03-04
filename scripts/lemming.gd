@@ -15,6 +15,8 @@ const DEFAULT_JUMP_FORCE: float = -788.0
 @export var direction : Vector2 = Vector2(1.0, 0.0)
 var speed: float = DEFAULT_SPEED
 var jump_force: float = DEFAULT_JUMP_FORCE
+var floating = false;
+var exited_floating = false;
 
 var initial_state: State = WalkingState.new(self)
 var state_machine: StateMachine = StateMachine.new(initial_state)
@@ -79,6 +81,3 @@ func _physics_process(delta):
 	state_machine.physics_update(delta)
 	move_and_slide()
 	
-
-
-

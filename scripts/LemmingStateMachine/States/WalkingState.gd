@@ -22,8 +22,11 @@ func update():
 	pass
 	
 func physics_update(_delta: float):
-	if (not lemming.is_on_floor()):
+	if (not lemming.is_on_floor() && not lemming.floating && not lemming.exited_floating):
 		exit_state.emit(FallingState.new(lemming))
+		return
+	if (not lemming.is_on_floor() && lemming.floating && lemming.exited_floating):
+		exit_state.emit(FloatingState.new(lemming))
 		return
 		
 	if (lemming.is_on_wall()):

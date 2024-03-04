@@ -1,5 +1,5 @@
 extends State
-class_name FallingState
+class_name FloatingState
 
 #func _init(lemming: Lemming) -> void:
 #	super(lemming)
@@ -11,16 +11,18 @@ func physics_update(_delta: float):
 	if (lemming.is_on_floor()):
 		exit_state.emit(WalkingState.new(lemming))
 		return
-	lemming.velocity.y = lemming.gravity / 1.4
+	lemming.velocity.y = lemming.gravity / 2
 	pass
 
 func onEnter():
-	print("Entered FallingState")
+	print("Entered FloatingState")
 	lemming.direction.y = 1
-	lemming.velocity.x = 0
+		#lemming.velocity.x = 0
 	pass
 
 func onExit():
-	print("Exited FallingState")
+	print("Exited FloatingState")
 	lemming.direction.y = 0
+	lemming.floating = false;
+	lemming.exited_floating = false
 	pass

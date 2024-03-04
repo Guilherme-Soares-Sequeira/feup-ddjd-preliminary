@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://duvb86fuyqh86"]
+[gd_scene load_steps=9 format=3 uid="uid://rurp4v5k2av4"]
 
 [ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="1_3mnvc"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ytbfc"]
 [ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="2_jtuy7"]
 [ext_resource type="PackedScene" uid="uid://ckyfsfegx2hhi" path="res://scenes/grass.tscn" id="3_5tb4c"]
+[ext_resource type="PackedScene" uid="uid://b1uf0a1d1fw13" path="res://scenes/wind.tscn" id="5_3vd8u"]
+[ext_resource type="PackedScene" uid="uid://bb4lacx64xtut" path="res://scenes/vertical_wind.tscn" id="6_104ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3js6h"]
 size = Vector2(901, 100.5)
@@ -14,7 +16,7 @@ size = Vector2(901, 100.5)
 script = ExtResource("1_ytbfc")
 
 [node name="Lemming" parent="." instance=ExtResource("1_3mnvc")]
-position = Vector2(524, 253)
+position = Vector2(533, 225)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -31,7 +33,16 @@ scale = Vector2(900, 100)
 mesh = SubResource("QuadMesh_f7nhr")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_jtuy7")]
-position = Vector2(770, 403)
+position = Vector2(972, 401)
 
 [node name="Grass" parent="." instance=ExtResource("3_5tb4c")]
-position = Vector2(898, 403)
+position = Vector2(150, 167)
+
+[node name="Horizontal Wind" parent="." instance=ExtResource("5_3vd8u")]
+position = Vector2(77, 14)
+
+[node name="Vertical Wind" parent="." instance=ExtResource("6_104ir")]
+position = Vector2(570, 467)
+
+[node name="Horizontal Wind2" parent="." instance=ExtResource("5_3vd8u")]
+position = Vector2(25, 467)
