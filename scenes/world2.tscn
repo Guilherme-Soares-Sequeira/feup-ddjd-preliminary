@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://btqrcw8156wcx"]
+
+[ext_resource type="PackedScene" uid="uid://rurp4v5k2av4" path="res://scenes/world.tscn" id="1_q5cke"]
+[ext_resource type="PackedScene" uid="uid://bna8vggp5f285" path="res://scenes/water.tscn" id="2_lfshp"]
+
+[node name="World" instance=ExtResource("1_q5cke")]
+
+[node name="Lemming" parent="." index="0"]
+position = Vector2(539, -115)
+
+[node name="Water" parent="." index="7" instance=ExtResource("2_lfshp")]
+position = Vector2(467, 464)

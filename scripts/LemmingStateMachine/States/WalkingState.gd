@@ -33,7 +33,10 @@ func physics_update(_delta: float):
 		if (jump_or_turn()):
 			exit_state.emit(JumpingState.new(lemming))
 			return
-	
+	if (lemming.is_on_water):
+		lemming.pass_out()
+		return
+
 	lemming.velocity.x = lemming.speed * lemming.direction.x
 
 func onEnter():

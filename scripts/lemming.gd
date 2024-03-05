@@ -17,6 +17,7 @@ var speed: float = DEFAULT_SPEED
 var jump_force: float = DEFAULT_JUMP_FORCE
 var floating = false;
 var exited_floating = false;
+var is_on_water = false;
 
 var initial_state: State = WalkingState.new(self)
 var state_machine: StateMachine = StateMachine.new(initial_state)
