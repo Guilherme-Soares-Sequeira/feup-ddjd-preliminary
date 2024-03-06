@@ -1,28 +1,34 @@
 extends State
 class_name FloatingState
 
-#func _init(lemming: Lemming) -> void:
-#	super(lemming)
+func handle_entered_vertical_wind() -> void:
+	pass
+
+func handle_exited_vertical_wind() -> void:
+	if (lemming.velocity.y == 0 && lemming.is_on_floor()):
+		self.exit_state.emit(WalkingState.new(self.lemming))
+		return
+	
+	self.exit_state.emit(DecelerationState.new(self.lemming))
+
+func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
+	print("velocity = " + str(lemming.velocity.y))
+	lemming.velocity.y += wind_force/3.0 * vertical_direction
+	
+	if (vertical_direction > 0):
+		lemming.velocity.y = min(wind_force, lemming.velocity.y)
+	else:
+		lemming.velocity.y = max(-wind_force, lemming.velocity.y)
 
 func update():
 	pass
 	
 func physics_update(_delta: float):
-	if (lemming.is_on_floor()):
-		exit_state.emit(WalkingState.new(lemming))
-		return
-	lemming.velocity.y = lemming.gravity / 2
 	pass
 
 func onEnter():
-	print("Entered FloatingState")
-	lemming.direction.y = 1
-		#lemming.velocity.x = 0
+	lemming.velocity.x = 0
 	pass
 
 func onExit():
-	print("Exited FloatingState")
-	lemming.direction.y = 0
-	lemming.floating = false;
-	lemming.exited_floating = false
 	pass

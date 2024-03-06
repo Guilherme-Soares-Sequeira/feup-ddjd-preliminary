@@ -1,17 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1uf0a1d1fw13"]
+[gd_scene load_steps=2 format=3 uid="uid://b1uf0a1d1fw13"]
 
 [ext_resource type="Script" path="res://scripts/wind.gd" id="1_j5ykt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp33p"]
-size = Vector2(224, 123)
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_j5ykt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(259, -62.5)
-shape = SubResource("RectangleShape2D_vp33p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

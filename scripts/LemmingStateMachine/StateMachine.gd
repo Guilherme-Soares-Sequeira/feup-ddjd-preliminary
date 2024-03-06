@@ -11,11 +11,23 @@ func _init(initial_state: State):
 func _ready():
 	pass
 
-func handle_left_click():
+func handle_left_click() -> void:
 	current_state.handle_left_click()
 
+func handle_entered_vertical_wind() -> void:
+	self.current_state.handle_entered_vertical_wind()
+
+func handle_exited_vertical_wind() -> void:
+	self.current_state.handle_exited_vertical_wind()
+
+func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
+	self.current_state.handle_pushed_by_wind(vertical_direction, wind_force)
+
 func update():
-	if not current_state: return
+	if not current_state:
+		printerr("[StateMachine] No current state.")
+		return
+
 	current_state.update()
 	
 func physics_update(delta: float):

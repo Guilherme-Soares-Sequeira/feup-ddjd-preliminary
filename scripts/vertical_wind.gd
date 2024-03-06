@@ -1,28 +1,39 @@
 extends Area2D
 
+@export var collision_area: CollisionShape2D
+
+@export var wind_force: int = 300
+@export var pointing_up: bool = true
+
+var wind_direction: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if self.pointing_up:
+		self.wind_direction = -1
+	else:
+		self.wind_direction = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-
 func _on_body_entered(body):
-	print("IN")
-	print(body.speed)
-	body.velocity.y = -200
-	body.direction.y = 1
-	body.floating = true
-	#body.gravity *= -1
+	if not body.has_method("handle_entered_vertical_wind"):
+		printerr("Body that does implement needed functions entered Vertical Wind: " + str(body))
+		return
 	
-
+	body.handle_entered_vertical_wind()
 
 func _on_body_exited(body):
-	print("Out")
-	print(body.speed)
-	body.direction.y = 0
-	body.exited_floating = true
+	if not body.has_method("handle_exited_vertical_wind"):
+		printerr("Body that does implement needed functions entered Vertical Wind: " + str(body))
+		return
+	body.handle_exited_vertical_wind()
+
+func _physics_process(_delta):
+	for body in get_overlapping_bodies():
+		if not body.has_method("handle_pushed_by_wind"):
+			printerr("Body that does implement needed functions is inside Vertical Wind: " + str(body))
+			continue
+		body.handle_pushed_by_wind(self.wind_direction, self.wind_force)

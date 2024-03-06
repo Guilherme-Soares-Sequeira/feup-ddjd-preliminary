@@ -11,16 +11,12 @@ func physics_update(_delta: float):
 	if (lemming.is_on_floor()):
 		exit_state.emit(WalkingState.new(lemming))
 		return
-	lemming.velocity.y = lemming.gravity / 1.4
+	lemming.velocity.y = lemming.gravity / 1.8
 	pass
 
 func onEnter():
-	print("Entered FallingState")
-	lemming.direction.y = 1
 	lemming.velocity.x = 0
 	pass
 
 func onExit():
-	print("Exited FallingState")
-	lemming.direction.y = 0
 	pass

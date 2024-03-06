@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rurp4v5k2av4"]
+[gd_scene load_steps=12 format=3 uid="uid://rurp4v5k2av4"]
 
 [ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="1_3mnvc"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ytbfc"]
@@ -12,11 +12,20 @@ size = Vector2(901, 100.5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_f7nhr"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrlpm"]
+size = Vector2(322, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjllj"]
+size = Vector2(62, 118.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wla3"]
+size = Vector2(265.5, 85.5)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_ytbfc")
 
 [node name="Lemming" parent="." instance=ExtResource("1_3mnvc")]
-position = Vector2(533, 225)
+position = Vector2(271, 139)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -33,16 +42,29 @@ scale = Vector2(900, 100)
 mesh = SubResource("QuadMesh_f7nhr")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_jtuy7")]
-position = Vector2(972, 401)
+position = Vector2(1093, 397)
 
 [node name="Grass" parent="." instance=ExtResource("3_5tb4c")]
-position = Vector2(150, 167)
+position = Vector2(29, 158)
 
-[node name="Horizontal Wind" parent="." instance=ExtResource("5_3vd8u")]
-position = Vector2(77, 14)
+[node name="Horizontal Wind Right" parent="." instance=ExtResource("5_3vd8u")]
+position = Vector2(565, 35)
+pointing_right = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Right"]
+position = Vector2(-208, 386)
+shape = SubResource("RectangleShape2D_xrlpm")
 
 [node name="Vertical Wind" parent="." instance=ExtResource("6_104ir")]
-position = Vector2(570, 467)
+position = Vector2(488, 466)
 
-[node name="Horizontal Wind2" parent="." instance=ExtResource("5_3vd8u")]
-position = Vector2(25, 467)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Wind"]
+position = Vector2(126, -60.75)
+shape = SubResource("RectangleShape2D_cjllj")
+
+[node name="Horizontal Wind Left" parent="." instance=ExtResource("5_3vd8u")]
+position = Vector2(565, 164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Left"]
+position = Vector2(315.25, 256.75)
+shape = SubResource("RectangleShape2D_6wla3")

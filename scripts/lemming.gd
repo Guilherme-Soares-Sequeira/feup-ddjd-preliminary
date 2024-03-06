@@ -39,6 +39,23 @@ func scale_sprite():
 
 	sprite.scale = Vector2(scale_x, scale_y)
 
+func set_horizontal_direction(new_direction: int):
+	self.direction.x = new_direction
+	# turn sprite and other logic if needed
+
+func set_speed(new_speed: int):
+	self.speed = new_speed
+	# other logic if needed
+
+func handle_entered_vertical_wind():
+	self.state_machine.handle_entered_vertical_wind()
+
+func handle_exited_vertical_wind():
+	self.state_machine.handle_exited_vertical_wind()
+
+func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
+	self.state_machine.handle_pushed_by_wind(vertical_direction, wind_force)
+
 # Called when the lemming is added to the node tree
 func _ready():
 	main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
@@ -70,7 +87,6 @@ func pass_out():
 	passed_out_lemming.apply_central_impulse(Vector2(0, -100))
 	passed_out_lemming.angular_velocity = 5.7 * direction.x
 	
-
 	# Remove the lemming that just passed out
 	self.queue_free()	
 

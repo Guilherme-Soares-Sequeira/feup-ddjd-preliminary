@@ -37,9 +37,7 @@ func physics_update(_delta: float):
 	lemming.velocity.x = lemming.speed * lemming.direction.x
 
 func onEnter():
-	print("Entered WalkingState")
 	pass
 
 func onExit():
-	print("Exited WalkingState")	
 	pass
