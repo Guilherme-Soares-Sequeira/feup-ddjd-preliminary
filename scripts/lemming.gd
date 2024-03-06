@@ -47,6 +47,9 @@ func set_speed(new_speed: int):
 	self.speed = new_speed
 	# other logic if needed
 
+func apply_gravity(delta):
+	self.velocity.y = min(self.gravity, self.velocity.y + self.gravity * delta)
+
 func handle_entered_vertical_wind():
 	self.state_machine.handle_entered_vertical_wind()
 

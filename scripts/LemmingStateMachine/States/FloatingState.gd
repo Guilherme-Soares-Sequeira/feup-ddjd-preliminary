@@ -12,7 +12,6 @@ func handle_exited_vertical_wind() -> void:
 	self.exit_state.emit(DecelerationState.new(self.lemming))
 
 func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
-	print("velocity = " + str(lemming.velocity.y))
 	lemming.velocity.y += wind_force/3.0 * vertical_direction
 	
 	if (vertical_direction > 0):

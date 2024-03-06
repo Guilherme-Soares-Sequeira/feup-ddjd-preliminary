@@ -16,7 +16,7 @@ size = Vector2(901, 100.5)
 size = Vector2(322, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjllj"]
-size = Vector2(62, 118.5)
+size = Vector2(62, 213.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wla3"]
 size = Vector2(265.5, 85.5)
@@ -52,14 +52,15 @@ position = Vector2(565, 35)
 pointing_right = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Right"]
-position = Vector2(-208, 386)
+position = Vector2(-230, 386)
 shape = SubResource("RectangleShape2D_xrlpm")
 
 [node name="Vertical Wind" parent="." instance=ExtResource("6_104ir")]
 position = Vector2(488, 466)
+wind_force = 505
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Wind"]
-position = Vector2(126, -60.75)
+position = Vector2(126, -108.25)
 shape = SubResource("RectangleShape2D_cjllj")
 
 [node name="Horizontal Wind Left" parent="." instance=ExtResource("5_3vd8u")]

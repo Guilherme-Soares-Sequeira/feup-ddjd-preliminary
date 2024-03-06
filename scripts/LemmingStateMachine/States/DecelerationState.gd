@@ -5,7 +5,7 @@ func update():
 	pass
 
 func physics_update(delta: float):
-	lemming.velocity.y = lemming.velocity.y + lemming.gravity * delta
+	lemming.apply_gravity(delta)
 	
 	if lemming.velocity.y >= 0:
 		self.exit_state.emit(FallingState.new(self.lemming))
