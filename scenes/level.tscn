@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0okpbjwmpflm"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_wtugy"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("lemmings")]
+script = ExtResource("1_wtugy")
+lemmings = [null]
+
+[node name="Cheatsheets" type="Node2D" parent="."]
+
+[node name="Exit" type="Node2D" parent="."]
+
+[node name="Lemmings" type="Node2D" parent="."]
+
+[node name="Terrain" type="Node2D" parent="."]
