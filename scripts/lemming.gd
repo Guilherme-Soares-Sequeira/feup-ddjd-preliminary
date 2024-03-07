@@ -12,7 +12,7 @@ const DEFAULT_SPEED: float = 100.0
 const DEFAULT_JUMP_FORCE: float = -788.0
 
 # Fields
-@export var direction : Vector2 = Vector2(1.0, 0.0)
+@export var direction : Vector2 = Vector2(1, 0)
 var speed: float = DEFAULT_SPEED
 var jump_force: float = DEFAULT_JUMP_FORCE
 var floating = false;
@@ -39,16 +39,29 @@ func scale_sprite():
 
 	sprite.scale = Vector2(scale_x, scale_y)
 
-func set_horizontal_direction(new_direction: int):
+func set_horizontal_direction(new_direction: float):
 	self.direction.x = new_direction
 	# turn sprite and other logic if needed
 
-func set_speed(new_speed: int):
+func set_speed(new_speed: float):
 	self.speed = new_speed
+
+	if (self.speed < 0):
+		self.speed *= -1
+		self.set_horizontal_direction(-self.direction.x)
+	
+	self.update_x_velocity()
 	# other logic if needed
+
+func update_x_velocity():
+	self.velocity.x = self.speed * self.direction.x
 
 func apply_gravity(delta):
 	self.velocity.y = min(self.gravity, self.velocity.y + self.gravity * delta)
+
+func apply_horizontal_friction(delta: float):
+	if (self.speed > self.DEFAULT_SPEED):
+		self.set_speed(max(self.speed - 200 * delta, self.DEFAULT_SPEED))
 
 func handle_entered_vertical_wind():
 	self.state_machine.handle_entered_vertical_wind()
@@ -56,8 +69,11 @@ func handle_entered_vertical_wind():
 func handle_exited_vertical_wind():
 	self.state_machine.handle_exited_vertical_wind()
 
-func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
-	self.state_machine.handle_pushed_by_wind(vertical_direction, wind_force)
+func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) -> void:
+	self.state_machine.handle_pushed_by_vertical_wind(vertical_direction, wind_force)
+
+func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int) -> void:
+	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
 # Called when the lemming is added to the node tree
 func _ready():

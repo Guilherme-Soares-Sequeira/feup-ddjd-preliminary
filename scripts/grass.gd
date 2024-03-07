@@ -1,4 +1,4 @@
-extends StaticBody2D
+class_name Grass extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,4 +1,4 @@
-extends Area2D
+class_name VerticalWind extends Area2D
 
 @export var collision_area: CollisionShape2D
 
@@ -33,7 +33,7 @@ func _on_body_exited(body):
 
 func _physics_process(_delta):
 	for body in get_overlapping_bodies():
-		if not body.has_method("handle_pushed_by_wind"):
+		if not body.has_method("handle_pushed_by_vertical_wind"):
 			printerr("Body that does implement needed functions is inside Vertical Wind: " + str(body))
 			continue
-		body.handle_pushed_by_wind(self.wind_direction, self.wind_force)
+		body.handle_pushed_by_vertical_wind(self.wind_direction, self.wind_force)

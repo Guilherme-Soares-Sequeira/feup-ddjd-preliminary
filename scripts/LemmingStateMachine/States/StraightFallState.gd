@@ -1,8 +1,5 @@
 extends State
-class_name FallingState
-
-#func _init(lemming: Lemming) -> void:
-#	super(lemming)
+class_name StraightFallState
 
 func update():
 	pass
@@ -14,7 +11,7 @@ func physics_update(delta: float):
 	lemming.apply_gravity(delta)
 	
 func onEnter():
-	lemming.velocity.x = 0
+	lemming.set_speed(0)
 	pass
 
 func onExit():

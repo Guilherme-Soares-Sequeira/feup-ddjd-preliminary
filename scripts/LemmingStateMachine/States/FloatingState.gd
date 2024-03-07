@@ -9,9 +9,9 @@ func handle_exited_vertical_wind() -> void:
 		self.exit_state.emit(WalkingState.new(self.lemming))
 		return
 	
-	self.exit_state.emit(DecelerationState.new(self.lemming))
+	self.exit_state.emit(FreeFallState.new(self.lemming))
 
-func handle_pushed_by_wind(vertical_direction: int, wind_force: int) -> void:
+func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) -> void:
 	lemming.velocity.y += wind_force/3.0 * vertical_direction
 	
 	if (vertical_direction > 0):
@@ -26,7 +26,7 @@ func physics_update(_delta: float):
 	pass
 
 func onEnter():
-	lemming.velocity.x = 0
+	lemming.set_speed(0)
 	pass
 
 func onExit():

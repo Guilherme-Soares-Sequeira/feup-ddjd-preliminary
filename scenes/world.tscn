@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ytbfc"]
 [ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="2_jtuy7"]
 [ext_resource type="PackedScene" uid="uid://ckyfsfegx2hhi" path="res://scenes/grass.tscn" id="3_5tb4c"]
-[ext_resource type="PackedScene" uid="uid://b1uf0a1d1fw13" path="res://scenes/wind.tscn" id="5_3vd8u"]
+[ext_resource type="PackedScene" uid="uid://b1uf0a1d1fw13" path="res://scenes/horizontal_wind.tscn" id="5_3vd8u"]
 [ext_resource type="PackedScene" uid="uid://bb4lacx64xtut" path="res://scenes/vertical_wind.tscn" id="6_104ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3js6h"]
@@ -19,7 +19,7 @@ size = Vector2(322, 86)
 size = Vector2(62, 213.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wla3"]
-size = Vector2(265.5, 85.5)
+size = Vector2(227.875, 85.5)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ytbfc")
@@ -52,7 +52,7 @@ position = Vector2(565, 35)
 pointing_right = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Right"]
-position = Vector2(-230, 386)
+position = Vector2(-241, 380)
 shape = SubResource("RectangleShape2D_xrlpm")
 
 [node name="Vertical Wind" parent="." instance=ExtResource("6_104ir")]
@@ -60,12 +60,12 @@ position = Vector2(488, 466)
 wind_force = 505
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Wind"]
-position = Vector2(126, -108.25)
+position = Vector2(173, -316)
 shape = SubResource("RectangleShape2D_cjllj")
 
 [node name="Horizontal Wind Left" parent="." instance=ExtResource("5_3vd8u")]
 position = Vector2(565, 164)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Left"]
-position = Vector2(315.25, 256.75)
+position = Vector2(294, 248)
 shape = SubResource("RectangleShape2D_6wla3")

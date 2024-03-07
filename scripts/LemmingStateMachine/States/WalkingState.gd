@@ -21,23 +21,22 @@ func jump_or_turn() -> bool:
 func update():
 	pass
 	
-func physics_update(_delta: float):
+func physics_update(delta: float):
 	if (not lemming.is_on_floor() && not lemming.floating && not lemming.exited_floating):
-		exit_state.emit(FallingState.new(lemming))
-		return
-	if (not lemming.is_on_floor() && lemming.floating && lemming.exited_floating):
-		exit_state.emit(FloatingState.new(lemming))
+		exit_state.emit(StraightFallState.new(lemming))
 		return
 		
 	if (lemming.is_on_wall()):
 		if (jump_or_turn()):
 			exit_state.emit(JumpingState.new(lemming))
 			return
-	
-	lemming.velocity.x = lemming.speed * lemming.direction.x
+
+	lemming.update_x_velocity()
+	lemming.apply_horizontal_friction(delta)
+
 
 func onEnter():
-	pass
+	lemming.set_speed(max(lemming.speed, lemming.DEFAULT_SPEED)) 
 
 func onExit():
 	pass

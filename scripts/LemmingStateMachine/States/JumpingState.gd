@@ -24,9 +24,7 @@ func physics_update(_delta: float):
 	yspeed += lemming.gravity / 23
 
 func onEnter():
-	print("Entered JumpingState")
 	jump()
 
 func onExit():
-	print("Exited JumpingState")
 	pass

@@ -1,14 +1,15 @@
 extends State
-class_name DecelerationState
+class_name FreeFallState
 
 func update():
 	pass
 
 func physics_update(delta: float):
+	if (lemming.is_on_floor()):
+		exit_state.emit(WalkingState.new(lemming))
+		return
+
 	lemming.apply_gravity(delta)
-	
-	if lemming.velocity.y >= 0:
-		self.exit_state.emit(FallingState.new(self.lemming))
 
 func onEnter():
 	pass
