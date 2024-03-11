@@ -22,6 +22,7 @@ func physics_update(_delta: float):
 	lemming.velocity.x = lemming.speed * lemming.direction.x
 	lemming.velocity.y = yspeed
 	yspeed += lemming.gravity / 23
+	lemming.animation.play("jump")
 
 func onEnter():
 	jump()

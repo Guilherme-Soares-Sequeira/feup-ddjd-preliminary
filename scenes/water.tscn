@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqx2ugm2c2nxh"]
+
+[ext_resource type="Script" path="res://scripts/water.gd" id="1_dmo3w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x8ou0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbnci"]
+size = Vector2(190, 315)
+
+[sub_resource type="QuadMesh" id="QuadMesh_sfuar"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_dmo3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_x8ou0")
+position = Vector2(85, -147.5)
+shape = SubResource("RectangleShape2D_wbnci")
+debug_color = Color(0.337255, 0.505882, 0.941176, 0.419608)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0.635294, 0.635294, 0.372549)
+position = Vector2(84.5, -148)
+scale = Vector2(187, 314)
+mesh = SubResource("QuadMesh_sfuar")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -42,30 +42,30 @@ scale = Vector2(900, 100)
 mesh = SubResource("QuadMesh_f7nhr")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_jtuy7")]
-position = Vector2(1093, 397)
+position = Vector2(490, 419)
 
 [node name="Grass" parent="." instance=ExtResource("3_5tb4c")]
-position = Vector2(29, 158)
+position = Vector2(-499, 152)
 
 [node name="Horizontal Wind Right" parent="." instance=ExtResource("5_3vd8u")]
 position = Vector2(565, 35)
 pointing_right = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Right"]
-position = Vector2(-241, 380)
+position = Vector2(-573, 374)
 shape = SubResource("RectangleShape2D_xrlpm")
 
 [node name="Vertical Wind" parent="." instance=ExtResource("6_104ir")]
-position = Vector2(488, 466)
+position = Vector2(877, 264)
 wind_force = 505
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Wind"]
-position = Vector2(173, -316)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vertical Wind"]
+position = Vector2(111, -376)
 shape = SubResource("RectangleShape2D_cjllj")
 
 [node name="Horizontal Wind Left" parent="." instance=ExtResource("5_3vd8u")]
 position = Vector2(565, 164)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Left"]
-position = Vector2(294, 248)
+position = Vector2(365, -114)
 shape = SubResource("RectangleShape2D_6wla3")
