@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://brwulgsir3yo7"]
+
+[ext_resource type="PackedScene" uid="uid://e5t4eqvy2csl" path="res://scenes/hud.tscn" id="1_vwwds"]
+
+[node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="hud" parent="UI" instance=ExtResource("1_vwwds")]

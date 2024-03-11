@@ -60,12 +60,12 @@ position = Vector2(488, 466)
 wind_force = 505
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vertical Wind"]
-position = Vector2(173, -316)
+position = Vector2(195, -116)
 shape = SubResource("RectangleShape2D_cjllj")
 
 [node name="Horizontal Wind Left" parent="." instance=ExtResource("5_3vd8u")]
 position = Vector2(565, 164)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Horizontal Wind Left"]
-position = Vector2(294, 248)
+position = Vector2(351, 248)
 shape = SubResource("RectangleShape2D_6wla3")
