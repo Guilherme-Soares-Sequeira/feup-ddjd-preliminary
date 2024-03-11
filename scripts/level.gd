@@ -9,15 +9,21 @@ signal level_exit()
 @export var lemmings: Array[Lemming]
 @export var needed_credit: int
 
-var current_score: int = 0
+@export var coffees: int
 
 
+var current_credit: int = 0
 
+func increase_credit(score: int):
+	self.current_score += score
+	
+	if (self.current_credit >= self.needed_credit):
+		self.exit.activate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	for cs: Cheatsheet in self.cheatsheets:
+		cs.picked_up.connect(increase_credit, CONNECT_ONE_SHOT)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
