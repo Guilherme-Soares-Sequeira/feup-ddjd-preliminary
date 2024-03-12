@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnwdr7152gnsg"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_180iw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tm1j4"]
+font_size = 50
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_180iw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -263.5
+offset_right = 270.0
+offset_bottom = -50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Frantic Escape
+ of the 
+Underachieving Pupils"
+label_settings = SubResource("LabelSettings_tm1j4")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 37.0
+offset_right = 20.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Level1" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/Level1"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="PlayLevelOneButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Level1"]
+layout_mode = 2
+text = "Play"
+
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Level1/PlayLevelOneButton" to="." method="_on_play_level_one_button_pressed"]

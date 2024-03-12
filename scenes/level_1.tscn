@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://wrsfp2i3ufvb"]
+[gd_scene load_steps=6 format=3 uid="uid://wrsfp2i3ufvb"]
 
 [ext_resource type="PackedScene" uid="uid://b0okpbjwmpflm" path="res://scenes/level.tscn" id="1_mouc3"]
+[ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="2_usaqe"]
+[ext_resource type="PackedScene" uid="uid://flqaghxygak8" path="res://scenes/cheatsheet.tscn" id="2_xw5sk"]
+[ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="3_sbquf"]
+[ext_resource type="PackedScene" uid="uid://ckyfsfegx2hhi" path="res://scenes/grass.tscn" id="4_gb5ca"]
 
-[node name="level1" node_paths=PackedStringArray("lemmings") instance=ExtResource("1_mouc3")]
+[node name="level1" node_paths=PackedStringArray("cheatsheets", "lemmings") instance=ExtResource("1_mouc3")]
+cheatsheets = [NodePath("Cheatsheets/Cheatsheet")]
 lemmings = []
+needed_credit = 100
+initial_coffees = 5
+initial_debugs = 3
+
+[node name="Cheatsheet" parent="Cheatsheets" index="0" instance=ExtResource("2_xw5sk")]
+position = Vector2(424, 391)
+credit_score = 50
+
+[node name="Lemming" parent="Lemmings" index="0" node_paths=PackedStringArray("level") instance=ExtResource("2_usaqe")]
+position = Vector2(317, 209)
+level = NodePath("../..")
+
+[node name="StaticBody2D2" parent="Terrain" index="0" instance=ExtResource("3_sbquf")]
+position = Vector2(427, 503)
+
+[node name="StaticBody2D" parent="Terrain" index="1" instance=ExtResource("3_sbquf")]
+position = Vector2(301, 503)
+
+[node name="StaticBody2D3" parent="Terrain" index="2" instance=ExtResource("3_sbquf")]
+position = Vector2(550, 328)
+
+[node name="StaticBody2D4" parent="Terrain" index="3" instance=ExtResource("3_sbquf")]
+position = Vector2(169, 359)
+
+[node name="Grass" parent="." index="4" instance=ExtResource("4_gb5ca")]
+position = Vector2(873, 396)

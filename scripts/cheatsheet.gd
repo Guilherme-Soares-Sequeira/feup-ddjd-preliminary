@@ -8,9 +8,6 @@ signal picked_up(score: int)
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	self.picked_up.emit(self.credit_score)
+	queue_free()

@@ -12,7 +12,10 @@ const DEFAULT_SPEED: float = 100.0
 const DEFAULT_JUMP_FORCE: float = -788.0
 
 # Fields
+@export var level: Level
 @export var direction : Vector2 = Vector2(1, 0)
+var is_sleeping = true
+var tool
 var speed: float = DEFAULT_SPEED
 var jump_force: float = DEFAULT_JUMP_FORCE
 var floating = false;
@@ -20,6 +23,11 @@ var exited_floating = false;
 
 var initial_state: State = WalkingState.new(self)
 var state_machine: StateMachine = StateMachine.new(initial_state)
+
+# Signals
+
+signal coffee_used()
+signal debug_used()
 
 # Nodes 
 @onready var collider_right: Area2D = %ColliderRight
@@ -89,13 +97,47 @@ func is_mouse_left_click(event: InputEvent):
 	var mouse_event := event as InputEventMouseButton
 	return mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed
 	
+func wake_up():
+	self.is_sleeping = false
+	self.state_machine.transition_to(WalkingState.new(self))
+
+func apply_tool(new_tool: Level.tools):
+	print("applying tool:")
+	match new_tool:
+		Level.tools.NONE:
+			print("tool was none")			
+			pass
+		Level.tools.DEBUG:
+			print("tool was debug")
+			
+			if level.current_debugs <= 0:
+				return
+			self.tool = 1 # Placeholder
+			self.debug_used.emit()
+
+		Level.tools.COFFEE:
+			print("tool was coffee")
+			
+			if level.current_coffees <= 0 || not self.is_sleeping:
+				return
+			self.wake_up()
+			self.coffee_used.emit()
+			
+	# other logic (update sprite?)
+	return
 
 # Handle lemming being clicked with the mouse
 func _on_input_event(_viewport, event, _shape_idx):
 	if not is_mouse_left_click(event):
 		return
+		
+	print("detected left click!")
 	
-	pass_out()
+	if (self.tool != null):
+		return
+	
+	print("tool was not null")
+	self.apply_tool(self.level.selected_tool)
 
 func pass_out():
 	# Create an instance of the PassedOutLemming scene

@@ -4,14 +4,10 @@ class_name Exit extends Area2D
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func activate():
 	self.set_collision_mask_value(1, true)
 	# other stuff
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	print("Exit noticed a body entered!")
 	pass

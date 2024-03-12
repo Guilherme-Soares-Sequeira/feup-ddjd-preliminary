@@ -23,6 +23,7 @@ func scale_sprite():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	@warning_ignore("integer_division")
 	collision_shape.shape.extents = Vector2(WIDTH/2, HEIGHT/2)
 	scale_sprite()
 	self.set_pickable(true)

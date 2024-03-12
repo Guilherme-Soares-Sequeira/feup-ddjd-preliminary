@@ -24,6 +24,8 @@ size = Vector2(227.875, 85.5)
 [node name="World" type="Node2D"]
 script = ExtResource("1_ytbfc")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="Lemming" parent="." instance=ExtResource("1_3mnvc")]
 position = Vector2(271, 139)
 
