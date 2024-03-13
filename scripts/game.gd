@@ -38,6 +38,7 @@ func load_level(level_num: int):
 	self.hud.set_current_credit(0)
 	self.hud.set_current_coffee(level.get_initial_coffees())
 	self.hud.set_current_debug(level.get_initial_debugs())
+	self.hud.set_needed_escape(level.get_needed_escape())
 	
 	# Connect level to hud
 	level.update_coffees.connect(self.hud.set_current_coffee)

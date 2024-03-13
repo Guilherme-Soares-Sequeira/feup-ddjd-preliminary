@@ -15,13 +15,13 @@ const DEFAULT_JUMP_FORCE: float = -788.0
 @export var level: Level
 @export var direction : Vector2 = Vector2(1, 0)
 var is_sleeping = true
-var tool
+var tool = null
 var speed: float = DEFAULT_SPEED
 var jump_force: float = DEFAULT_JUMP_FORCE
 var floating = false;
 var exited_floating = false;
 
-var initial_state: State = WalkingState.new(self)
+var initial_state: State = AsleepState.new(self)
 var state_machine: StateMachine = StateMachine.new(initial_state)
 
 # Signals
@@ -71,6 +71,8 @@ func apply_horizontal_friction(delta: float):
 	if (self.speed > self.DEFAULT_SPEED):
 		self.set_speed(max(self.speed - 200 * delta, self.DEFAULT_SPEED))
 
+# Environment Handlers
+
 func handle_entered_vertical_wind():
 	self.state_machine.handle_entered_vertical_wind()
 
@@ -83,12 +85,10 @@ func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) ->
 func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int) -> void:
 	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
-# Called when the lemming is added to the node tree
-func _ready():
-	main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
-	scale_sprite()
-	
-	self.set_pickable(true) # Allows the lemming to be clicked
+func handle_exit():
+	queue_free()
+
+# Tools
 
 func is_mouse_left_click(event: InputEvent):
 	if not (event is InputEventMouseButton):
@@ -96,28 +96,26 @@ func is_mouse_left_click(event: InputEvent):
 	
 	var mouse_event := event as InputEventMouseButton
 	return mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed
+
+# Handle lemming being clicked with the mouse
+func _on_input_event(_viewport, event, _shape_idx):
+	if not is_mouse_left_click(event):
+		return
 	
-func wake_up():
-	self.is_sleeping = false
-	self.state_machine.transition_to(WalkingState.new(self))
+	self.apply_tool(self.level.selected_tool)
 
 func apply_tool(new_tool: Level.tools):
-	print("applying tool:")
 	match new_tool:
 		Level.tools.NONE:
-			print("tool was none")			
 			pass
 		Level.tools.DEBUG:
-			print("tool was debug")
 			
-			if level.current_debugs <= 0:
+			if level.current_debugs <= 0 || self.tool != level.tools.NONE:
 				return
 			self.tool = 1 # Placeholder
 			self.debug_used.emit()
 
 		Level.tools.COFFEE:
-			print("tool was coffee")
-			
 			if level.current_coffees <= 0 || not self.is_sleeping:
 				return
 			self.wake_up()
@@ -126,18 +124,9 @@ func apply_tool(new_tool: Level.tools):
 	# other logic (update sprite?)
 	return
 
-# Handle lemming being clicked with the mouse
-func _on_input_event(_viewport, event, _shape_idx):
-	if not is_mouse_left_click(event):
-		return
-		
-	print("detected left click!")
-	
-	if (self.tool != null):
-		return
-	
-	print("tool was not null")
-	self.apply_tool(self.level.selected_tool)
+func wake_up():
+	self.is_sleeping = false
+	self.state_machine.transition_to(WalkingState.new(self))
 
 func pass_out():
 	# Create an instance of the PassedOutLemming scene
@@ -149,7 +138,14 @@ func pass_out():
 	passed_out_lemming.angular_velocity = 5.7 * direction.x
 	
 	# Remove the lemming that just passed out
-	self.queue_free()	
+	self.queue_free()
+
+# Called when the lemming is added to the node tree
+func _ready():
+	main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
+	scale_sprite()
+	
+	self.set_pickable(true) # Allows the lemming to be clicked
 
 func _process(_delta):
 	state_machine.update()

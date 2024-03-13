@@ -1,12 +1,6 @@
 extends State
 class_name WalkingState
 
-#func _init(lemming: Lemming) -> void:
-#	super(lemming)
-	
-func handle_left_click():
-	exit_state.emit(JumpingState.new(lemming)) # place holder, test
-
 func jump_or_turn() -> bool:
 	if (lemming.direction.x > 0):
 		if (not lemming.collider_right.has_overlapping_bodies()):

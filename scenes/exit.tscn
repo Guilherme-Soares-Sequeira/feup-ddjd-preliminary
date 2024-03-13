@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_kb2do")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Sprite2D"]
+unique_name_in_owner = true
 modulate = Color(0.231373, 0.0823529, 0.0235294, 1)
 position = Vector2(0, -80)
 mesh = SubResource("QuadMesh_pfi3a")

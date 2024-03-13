@@ -9,6 +9,8 @@ signal select_debug()
 @onready var debug_button = %DebugButton
 @onready var current_credit = %CurrentCredit
 @onready var needed_credit = %NeededCredit
+@onready var current_escaped = %CurrentEscaped
+@onready var needed_escape = %NeededEscape
 
 func get_current_credit() -> int:
 	return int(current_credit.text)
@@ -16,11 +18,10 @@ func get_current_credit() -> int:
 func set_current_credit(curr_credit: int) -> void:
 	current_credit.text = str(curr_credit)
 
-func get_credit_score() -> int:
+func get_needed_credit() -> int:
 	return int(needed_credit.text)
 
 func set_needed_credit(need_credit: int) -> void:
-	print("called set needed credit with credit = ", need_credit)
 	needed_credit.text = str(need_credit)
 
 func get_current_coffee() -> int:
@@ -29,8 +30,19 @@ func get_current_coffee() -> int:
 func set_current_coffee(curr_coffee: int) -> void:
 	coffee_label.text = str(curr_coffee)
 
+func get_current_escaped() -> int:
+	return int(current_escaped.text)
+
+func set_current_escaped(new_current: int) -> void:
+	current_escaped.text = str(new_current)
+
+func get_needed_escaped() -> int:
+	return int(needed_escape.text)
+
+func set_needed_escape(new_needed: int) -> void:
+	needed_escape.text = str(new_needed)
+
 func _on_coffee_button_pressed():
-	print("select coffee emitted")
 	select_coffee.emit()
 
 func get_current_debug() -> int:
