@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bb4lacx64xtut"]
 
-[ext_resource type="Script" path="res://scripts/vertical_wind.gd" id="1_kp6p3"]
+[ext_resource type="Script" path="res://scripts/Environment/vertical_wind.gd" id="1_kp6p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phmqi"]
 size = Vector2(108, 365)

@@ -53,4 +53,4 @@ position = Vector2(820, 497)
 position = Vector2(-26, 670)
 
 [node name="Area2D" parent="." index="5" instance=ExtResource("7_ndfcf")]
-position = Vector2(561, 419)
+position = Vector2(697, 89)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyarfwqjb45jb"]
 
-[ext_resource type="Script" path="res://scripts/exit.gd" id="1_pqk62"]
+[ext_resource type="Script" path="res://scripts/Environment/exit.gd" id="1_f3f40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb2do"]
 size = Vector2(20, 160)
@@ -11,7 +11,7 @@ size = Vector2(90, 160)
 [node name="Exit" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_pqk62")
+script = ExtResource("1_f3f40")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -80)

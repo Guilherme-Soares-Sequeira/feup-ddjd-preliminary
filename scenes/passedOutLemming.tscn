@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cunmwme0jtiww"]
 
-[ext_resource type="Script" path="res://scripts/passedOutLemming.gd" id="1_7xrx3"]
+[ext_resource type="Script" path="res://scripts/Lemming/passedOutLemming.gd" id="1_7xrx3"]
 [ext_resource type="Texture2D" uid="uid://daldwv6ltwp3n" path="res://icon.svg" id="2_xoher"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2hr1"]

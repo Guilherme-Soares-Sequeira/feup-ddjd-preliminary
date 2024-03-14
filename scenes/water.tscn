@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqx2ugm2c2nxh"]
 
-[ext_resource type="Script" path="res://scripts/water.gd" id="1_dmo3w"]
+[ext_resource type="Script" path="res://scripts/Environment/water.gd" id="1_b2sqv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x8ou0"]
 
@@ -14,7 +14,7 @@ collision_layer = 8
 collision_mask = 33
 linear_damp_space_override = 1
 linear_damp = 11.734
-script = ExtResource("1_dmo3w")
+script = ExtResource("1_b2sqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_x8ou0")

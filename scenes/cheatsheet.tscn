@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://flqaghxygak8"]
 
-[ext_resource type="Script" path="res://scripts/cheatsheet.gd" id="1_nuh7u"]
+[ext_resource type="Script" path="res://scripts/Environment/cheatsheet.gd" id="1_ixjep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4i4br"]
 size = Vector2(10, 60)
@@ -10,7 +10,7 @@ size = Vector2(40, 60)
 
 [node name="Cheatsheet" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_nuh7u")
+script = ExtResource("1_ixjep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4i4br")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckyfsfegx2hhi"]
 
-[ext_resource type="Script" path="res://scripts/grass.gd" id="1_pkcls"]
+[ext_resource type="Script" path="res://scripts/Environment/grass.gd" id="1_pkcls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm2px"]
 size = Vector2(128, 128)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1uf0a1d1fw13"]
 
-[ext_resource type="Script" path="res://scripts/horizontal_wind.gd" id="1_j5ykt"]
+[ext_resource type="Script" path="res://scripts/Environment/horizontal_wind.gd" id="1_j5ykt"]
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 8

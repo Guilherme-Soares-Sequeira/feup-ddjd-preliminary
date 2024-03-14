@@ -29,6 +29,7 @@ var state_machine: StateMachine = StateMachine.new(initial_state)
 
 signal coffee_used()
 signal debug_used()
+signal physics_used()
 
 # Nodes 
 @onready var collider_right: Area2D = %ColliderRight
@@ -88,8 +89,9 @@ func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int
 	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
 func handle_enter_water(water):
+	var terrain = level.get_terrain_node()
 	if self.tool != null and self.tool.has_method("handle_enter_water"):
-		self.tool.handle_enter_water(water)
+		self.tool.handle_enter_water(terrain, water)
 	else:
 		pass_out()
 
@@ -117,10 +119,8 @@ func apply_tool(new_tool: Level.tools):
 		Level.tools.NONE:
 			pass
 		Level.tools.DEBUG:
-			
-			if level.current_debugs <= 0 || self.tool != level.tools.NONE:
+			if level.current_debugs <= 0 || self.tool != null || self.is_sleeping:
 				return
-			self.tool = 1 # Placeholder
 			self.debug_used.emit()
 
 		Level.tools.COFFEE:
@@ -128,7 +128,14 @@ func apply_tool(new_tool: Level.tools):
 				return
 			self.wake_up()
 			self.coffee_used.emit()
+		Level.tools.PHYSICS:
+			if level.current_physics_bachelors <= 0 || self.tool != null || self.is_sleeping:
+				return
+			self.tool = PhysicsBachelor.new()
+			physics_used.emit()
+			print("used a physics, now = ", level.current_physics_bachelors)
 			
+
 	# other logic (update sprite?)
 	return
 

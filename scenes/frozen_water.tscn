@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://criadaffj7ibd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3svl1"]
+size = Vector2(128, 128)
+
+[sub_resource type="QuadMesh" id="QuadMesh_t1m32"]
+size = Vector2(128, 128)
+
+[node name="FrozenWater" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3svl1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.25098, 0.745098, 1, 1)
+mesh = SubResource("QuadMesh_t1m32")

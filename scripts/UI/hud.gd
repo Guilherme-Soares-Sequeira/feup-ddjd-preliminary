@@ -2,11 +2,14 @@ class_name Hud extends Control
 
 signal select_coffee()
 signal select_debug()
+signal select_physics_bachelor()
 
 @onready var coffee_label = %CoffeeLabel
 @onready var coffee_button = %CoffeeButton
 @onready var debug_label = %DebugLabel
 @onready var debug_button = %DebugButton
+@onready var physics_bachelor_label = %PhysicsBachelorLabel
+@onready var physics_bachelor_button = %PhysicsBachelorButton
 @onready var current_credit = %CurrentCredit
 @onready var needed_credit = %NeededCredit
 @onready var current_escaped = %CurrentEscaped
@@ -24,12 +27,6 @@ func get_needed_credit() -> int:
 func set_needed_credit(need_credit: int) -> void:
 	needed_credit.text = str(need_credit)
 
-func get_current_coffee() -> int:
-	return int(coffee_label.text)
-
-func set_current_coffee(curr_coffee: int) -> void:
-	coffee_label.text = str(curr_coffee)
-
 func get_current_escaped() -> int:
 	return int(current_escaped.text)
 
@@ -41,7 +38,13 @@ func get_needed_escaped() -> int:
 
 func set_needed_escape(new_needed: int) -> void:
 	needed_escape.text = str(new_needed)
+	
+func get_current_coffee() -> int:
+	return int(coffee_label.text)
 
+func set_current_coffee(curr_coffee: int) -> void:
+	coffee_label.text = str(curr_coffee)
+	
 func _on_coffee_button_pressed():
 	select_coffee.emit()
 
@@ -53,3 +56,12 @@ func set_current_debug(curr_debug: int) -> void:
 
 func _on_debug_button_pressed():
 	select_debug.emit()
+
+func get_current_physics_bachelor() -> int:
+	return int(physics_bachelor_label.text)
+
+func set_current_physics_bachelor(curr_physics_bachelor: int) -> void:
+	physics_bachelor_label.text = str(curr_physics_bachelor)
+	
+func _on_physics_bachelor_button_pressed():
+	select_physics_bachelor.emit()

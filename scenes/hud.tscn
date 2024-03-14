@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://e5t4eqvy2csl"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_vt00n"]
+[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_vt00n"]
 [ext_resource type="Texture2D" uid="uid://br0ccxolnqw0r" path="res://coffee.png" id="2_ox85r"]
 [ext_resource type="Texture2D" uid="uid://daldwv6ltwp3n" path="res://icon.svg" id="3_k7v5g"]
 
@@ -76,6 +76,29 @@ unique_name_in_owner = true
 layout_mode = 2
 flat = true
 icon_alignment = 1
+
+[node name="PhysicsBachelor" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PhysicsBachelor"]
+layout_mode = 2
+
+[node name="PhysicsBachelorLabel" type="Label" parent="HBoxContainer/PhysicsBachelor/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
+horizontal_alignment = 1
+
+[node name="PhysicsBachelor" type="TextureRect" parent="HBoxContainer/PhysicsBachelor/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_k7v5g")
+expand_mode = 4
+
+[node name="PhysicsBachelorButton" type="Button" parent="HBoxContainer/PhysicsBachelor"]
+unique_name_in_owner = true
+layout_mode = 2
+flat = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -159,3 +182,4 @@ text = "0"
 
 [connection signal="pressed" from="HBoxContainer/Coffee/CoffeeButton" to="." method="_on_coffee_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Debug/DebugButton" to="." method="_on_debug_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PhysicsBachelor/PhysicsBachelorButton" to="." method="_on_physics_bachelor_button_pressed"]
