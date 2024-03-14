@@ -9,6 +9,7 @@ func physics_update(delta: float):
 		exit_state.emit(WalkingState.new(lemming))
 		return
 	lemming.apply_gravity(delta)
+	lemming.animation.play("fall")
 	
 func onEnter():
 	lemming.set_speed(0)

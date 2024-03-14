@@ -34,6 +34,7 @@ signal debug_used()
 @onready var collider_left: Area2D = %ColliderLeft
 @onready var main_body: CollisionShape2D = %MainBody
 @onready var sprite: Sprite2D = %Sprite2D
+@onready var animation = self.get_node_or_null("AnimationPlayer")
 
 # Constructor
 func _init():
@@ -42,8 +43,8 @@ func _init():
 func scale_sprite():
 	var original_size = sprite.texture.get_size()
 
-	var scale_x = WIDTH / original_size.x
-	var scale_y = HEIGHT / original_size.y
+	var scale_x = WIDTH / (original_size.x / 7)
+	var scale_y = HEIGHT / (original_size.y / 7)
 
 	sprite.scale = Vector2(scale_x, scale_y)
 
@@ -151,6 +152,7 @@ func _process(_delta):
 	state_machine.update()
 
 func _physics_process(delta):
+	sprite.flip_h = (self.direction.x == -1)
 	state_machine.physics_update(delta)
 	move_and_slide()
 	

@@ -27,6 +27,8 @@ func physics_update(delta: float):
 
 	lemming.update_x_velocity()
 	lemming.apply_horizontal_friction(delta)
+	#print(lemming.get_node_or_null("AnimationPlayer"))
+	lemming.animation.play("walk")
 
 
 func onEnter():
