@@ -10,10 +10,9 @@ func physics_update(delta: float):
 		return
 
 	lemming.apply_gravity(delta)
-	lemming.animation.play("fall")
 
 func onEnter():
-	pass
+	lemming.animation.play("fall")	
 
 func onExit():
 	pass

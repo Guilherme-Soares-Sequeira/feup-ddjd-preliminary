@@ -87,6 +87,12 @@ func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) ->
 func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int) -> void:
 	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
+func handle_enter_water(water):
+	if self.tool != null and self.tool.has_method("handle_enter_water"):
+		self.tool.handle_enter_water(water)
+	else:
+		pass_out()
+
 func handle_exit():
 	queue_free()
 

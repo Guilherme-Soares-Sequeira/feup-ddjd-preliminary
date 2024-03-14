@@ -23,12 +23,11 @@ func update():
 	pass
 	
 func physics_update(_delta: float):
-	lemming.animation.play("fall")
 	pass
 
 func onEnter():
 	lemming.set_speed(0)
-	pass
+	lemming.animation.play("fall")	
 
 func onExit():
 	pass

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/cheatsheet.gd" id="1_nuh7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4i4br"]
-size = Vector2(40, 60)
+size = Vector2(10, 60)
 
 [sub_resource type="QuadMesh" id="QuadMesh_b08yc"]
 size = Vector2(40, 60)
