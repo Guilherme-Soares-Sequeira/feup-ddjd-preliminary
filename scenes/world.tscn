@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckyfsfegx2hhi" path="res://scenes/grass.tscn" id="3_5tb4c"]
 [ext_resource type="PackedScene" uid="uid://b1uf0a1d1fw13" path="res://scenes/horizontal_wind.tscn" id="5_3vd8u"]
 [ext_resource type="PackedScene" uid="uid://bb4lacx64xtut" path="res://scenes/vertical_wind.tscn" id="6_104ir"]
+[ext_resource type="PackedScene" uid="uid://bna8vggp5f285" path="res://scenes/water.tscn" id="7_8mrbf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3js6h"]
 size = Vector2(901, 100.5)
