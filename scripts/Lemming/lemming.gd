@@ -1,6 +1,7 @@
 class_name Lemming extends CharacterBody2D
 
 var PassedOutLemmingScene =  preload("res://scenes/passedOutLemming.tscn")
+var MechanicBachelorScene = preload("res://scenes/MechanicBachelor.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -30,6 +31,7 @@ var state_machine: StateMachine = StateMachine.new(initial_state)
 signal coffee_used()
 signal debug_used()
 signal physics_used()
+signal mechanic_used()
 
 # Nodes 
 @onready var collider_right: Area2D = %ColliderRight
@@ -77,14 +79,16 @@ func apply_horizontal_friction(delta: float):
 # Environment Handlers
 
 func handle_entered_vertical_wind():
+	print("entered vertical wind")
 	self.state_machine.handle_entered_vertical_wind()
 
 func handle_exited_vertical_wind():
+	print("exited vertical wind")
 	self.state_machine.handle_exited_vertical_wind()
 
 func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) -> void:
 	self.state_machine.handle_pushed_by_vertical_wind(vertical_direction, wind_force)
-
+	
 func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int) -> void:
 	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
@@ -118,11 +122,6 @@ func apply_tool(new_tool: Level.tools):
 	match new_tool:
 		Level.tools.NONE:
 			pass
-		Level.tools.DEBUG:
-			if level.current_debugs <= 0 || self.tool != null || self.is_sleeping:
-				return
-			self.debug_used.emit()
-
 		Level.tools.COFFEE:
 			if level.current_coffees <= 0 || not self.is_sleeping:
 				return
@@ -133,8 +132,13 @@ func apply_tool(new_tool: Level.tools):
 				return
 			self.tool = PhysicsBachelor.new()
 			physics_used.emit()
-			print("used a physics, now = ", level.current_physics_bachelors)
-			
+		Level.tools.MECHANIC:
+			if level.current_mechanics <= 0 || self.tool != null || self.is_sleeping:
+				return
+			self.tool = Tool.new()
+			var mechanic_bachelor = MechanicBachelorScene.instantiate()
+			self.add_child(mechanic_bachelor)
+			mechanic_used.emit()
 
 	# other logic (update sprite?)
 	return
@@ -157,8 +161,8 @@ func pass_out():
 
 # Called when the lemming is added to the node tree
 func _ready():
-	main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
-	scale_sprite()
+	#main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
+	#scale_sprite()
 	
 	self.set_pickable(true) # Allows the lemming to be clicked
 
@@ -169,4 +173,3 @@ func _physics_process(delta):
 	sprite.flip_h = (self.direction.x == -1)
 	state_machine.physics_update(delta)
 	move_and_slide()
-	

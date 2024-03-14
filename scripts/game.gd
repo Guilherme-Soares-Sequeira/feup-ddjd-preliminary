@@ -39,20 +39,20 @@ func load_level(level_num: int):
 	self.hud.set_current_credit(0)
 		## tools
 	self.hud.set_current_coffee(level.get_initial_coffees())
-	self.hud.set_current_debug(level.get_initial_debugs())
+	self.hud.set_current_mechanic(level.get_initial_mechanics())
 	self.hud.set_current_physics_bachelor(level.get_initial_physics_bachelors())
 	## escape
 	self.hud.set_needed_escape(level.get_needed_escape())
 	
 	# Connect level to hud
 	level.update_coffees.connect(self.hud.set_current_coffee)
-	level.update_debugs.connect(self.hud.set_current_debug)
+	level.update_mechanics.connect(self.hud.set_current_mechanic)
 	level.update_physics_bachelors.connect(self.hud.set_current_physics_bachelor)
 	level.update_credit.connect(self.hud.set_current_credit)
 	
 	# Connect hud to level
 	self.hud.select_coffee.connect(level.select_coffee)
-	self.hud.select_debug.connect(level.select_debug)
+	self.hud.select_mechanic.connect(level.select_mechanic)
 	self.hud.select_physics_bachelor.connect(level.select_physics_bachelor)
 	
 	# Connect level to Game

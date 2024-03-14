@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Environment/horizontal_wind.gd" id="1_j5ykt"]
 
-[node name="Area2D" type="Area2D"]
+[node name="HorizontalWind" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_j5ykt")
 

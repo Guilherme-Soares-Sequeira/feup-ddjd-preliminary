@@ -1,6 +1,6 @@
 class_name HorizontalWind extends Area2D
 
-@export var pointing_right: bool
+@export var pointing_right: bool = true
 @export var wind_force: int = 300
 @export var collision_area: CollisionShape2D
 

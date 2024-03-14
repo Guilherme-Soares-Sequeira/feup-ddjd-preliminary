@@ -19,6 +19,7 @@ func _process(_delta):
 	pass
 
 func _on_body_entered(body):
+	print("body entered")
 	if not body.has_method("handle_entered_vertical_wind"):
 		printerr("Body that does implement needed functions entered Vertical Wind: " + str(body))
 		return
@@ -26,6 +27,7 @@ func _on_body_entered(body):
 	body.handle_entered_vertical_wind()
 
 func _on_body_exited(body):
+	print("body exited")
 	if not body.has_method("handle_exited_vertical_wind"):
 		printerr("Body that does implement needed functions entered Vertical Wind: " + str(body))
 		return

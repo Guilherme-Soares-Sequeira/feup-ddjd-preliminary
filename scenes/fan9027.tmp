@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://jq7v6jq2e6pb"]
+
+[ext_resource type="Script" path="res://scripts/Environment/vertical_wind.gd" id="2_uxpcw"]
+[ext_resource type="Script" path="res://scripts/Environment/horizontal_wind.gd" id="3_chx0a"]
+
+[sub_resource type="GDScript" id="GDScript_yva8v"]
+script/source = "class_name MyFuckingFan extends StaticBody2D
+
+@export var wind_is_vertical: bool = true
+
+@export var wind_collision: CollisionShape2D
+
+func _ready():
+	assert(wind_collision is CollisionShape2D)
+	var vertical_wind: VerticalWind = %VerticalWind
+	var horizontal_wind: HorizontalWind = %HorizontalWind
+	if wind_is_vertical:
+		vertical_wind.collision_area = wind_collision
+		horizontal_wind.queue_free()
+	else:
+		horizontal_wind.collision_area = wind_collision
+		vertical_wind.queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdn2t"]
+size = Vector2(128, 128)
+
+[sub_resource type="QuadMesh" id="QuadMesh_de1v8"]
+size = Vector2(128, 128)
+
+[node name="Fan" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 0
+script = SubResource("GDScript_yva8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sdn2t")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.498039, 0.498039, 0.498039, 1)
+mesh = SubResource("QuadMesh_de1v8")
+
+[node name="VerticalWind" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_uxpcw")
+
+[node name="HorizontalWind" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_chx0a")
+
+[node name="Timer" type="Timer" parent="."]

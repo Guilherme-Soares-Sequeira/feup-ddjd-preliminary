@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://jq7v6jq2e6pb"]
+
+[ext_resource type="Script" path="res://scripts/Environment/fan.gd" id="1_tu0qa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o85h0"]
+size = Vector2(128, 128)
+
+[sub_resource type="QuadMesh" id="QuadMesh_de1v8"]
+size = Vector2(128, 128)
+
+[node name="Fan" type="StaticBody2D"]
+collision_layer = 66
+collision_mask = 0
+script = ExtResource("1_tu0qa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o85h0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.498039, 0.498039, 0.498039, 1)
+mesh = SubResource("QuadMesh_de1v8")

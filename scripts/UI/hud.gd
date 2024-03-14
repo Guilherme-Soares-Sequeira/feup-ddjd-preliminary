@@ -1,13 +1,13 @@
 class_name Hud extends Control
 
 signal select_coffee()
-signal select_debug()
+signal select_mechanic()
 signal select_physics_bachelor()
 
 @onready var coffee_label = %CoffeeLabel
 @onready var coffee_button = %CoffeeButton
-@onready var debug_label = %DebugLabel
-@onready var debug_button = %DebugButton
+@onready var mechanic_label = %MechanicLabel
+@onready var mechanic_button = %MechanicButton
 @onready var physics_bachelor_label = %PhysicsBachelorLabel
 @onready var physics_bachelor_button = %PhysicsBachelorButton
 @onready var current_credit = %CurrentCredit
@@ -48,14 +48,14 @@ func set_current_coffee(curr_coffee: int) -> void:
 func _on_coffee_button_pressed():
 	select_coffee.emit()
 
-func get_current_debug() -> int:
-	return int(debug_label.text)
+func get_current_mechanic() -> int:
+	return int(mechanic_label.text)
 
-func set_current_debug(curr_debug: int) -> void:
-	debug_label.text = str(curr_debug)
+func set_current_mechanic(curr_mechanic: int) -> void:
+	mechanic_label.text = str(curr_mechanic)
 
-func _on_debug_button_pressed():
-	select_debug.emit()
+func _on_mechanic_button_pressed():
+	select_mechanic.emit()
 
 func get_current_physics_bachelor() -> int:
 	return int(physics_bachelor_label.text)
