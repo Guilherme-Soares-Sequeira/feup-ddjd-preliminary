@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://wrsfp2i3ufvb"]
+[gd_scene load_steps=15 format=3 uid="uid://wrsfp2i3ufvb"]
 
 [ext_resource type="PackedScene" uid="uid://b0okpbjwmpflm" path="res://scenes/level.tscn" id="1_mouc3"]
+[ext_resource type="Texture2D" uid="uid://bl65yr6tlumme" path="res://assets/Background_2.png" id="2_1htt3"]
 [ext_resource type="PackedScene" uid="uid://d1tk2rq35fbjq" path="res://scenes/lemming.tscn" id="2_usaqe"]
 [ext_resource type="PackedScene" uid="uid://flqaghxygak8" path="res://scenes/cheatsheet.tscn" id="2_xw5sk"]
 [ext_resource type="PackedScene" uid="uid://bg6q1pcf355lh" path="res://scenes/block.tscn" id="3_sbquf"]
@@ -29,6 +30,11 @@ initial_coffees = 5
 initial_mechanics = 3
 initial_physics_bachelors = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(560.876, 285.649)
+scale = Vector2(2.528, 2.7)
+texture = ExtResource("2_1htt3")
+
 [node name="Cheatsheet" parent="Cheatsheets" index="0" instance=ExtResource("2_xw5sk")]
 position = Vector2(174, 354)
 scale = Vector2(0.3, 0.3)
@@ -45,7 +51,7 @@ scale = Vector2(0.3, 0.3)
 credit_score = 33
 
 [node name="Exit2" parent="Exit" index="0" instance=ExtResource("6_8xxrf")]
-position = Vector2(215, 545)
+position = Vector2(219, 545)
 scale = Vector2(0.3, 0.3)
 
 [node name="Lemming" parent="Lemmings" index="0" node_paths=PackedStringArray("level") instance=ExtResource("2_usaqe")]
@@ -99,12 +105,12 @@ scale = Vector2(0.3, 0.3)
 [node name="VerticalWind" parent="Terrain" index="7" instance=ExtResource("6_0q54f")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/VerticalWind" index="0"]
-position = Vector2(899, 257)
+position = Vector2(904, 257)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_o0rkr")
 
 [node name="Fan" parent="Terrain" index="8" node_paths=PackedStringArray("vertical_wind") instance=ExtResource("8_cum5r")]
-position = Vector2(680, 175)
+position = Vector2(674, 175)
 scale = Vector2(0.3, 0.3)
 vertical_wind = NodePath("../VerticalWind3")
 
@@ -129,15 +135,15 @@ position = Vector2(256, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D12" parent="Terrain" index="14" instance=ExtResource("3_sbquf")]
-position = Vector2(447, 213)
+position = Vector2(446, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D13" parent="Terrain" index="15" instance=ExtResource("3_sbquf")]
-position = Vector2(409, 213)
+position = Vector2(408, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D14" parent="Terrain" index="16" instance=ExtResource("3_sbquf")]
-position = Vector2(371, 213)
+position = Vector2(370, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D15" parent="Terrain" index="17" instance=ExtResource("3_sbquf")]
@@ -149,172 +155,172 @@ position = Vector2(294, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D17" parent="Terrain" index="19" instance=ExtResource("3_sbquf")]
-position = Vector2(486, 213)
+position = Vector2(484, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D18" parent="Terrain" index="20" instance=ExtResource("3_sbquf")]
-position = Vector2(525, 213)
+position = Vector2(522, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D19" parent="Terrain" index="21" instance=ExtResource("3_sbquf")]
-position = Vector2(564, 213)
+position = Vector2(560, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D20" parent="Terrain" index="22" instance=ExtResource("3_sbquf")]
-position = Vector2(603, 213)
+position = Vector2(598, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D21" parent="Terrain" index="23" instance=ExtResource("3_sbquf")]
-position = Vector2(641, 213)
+position = Vector2(636, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D22" parent="Terrain" index="24" instance=ExtResource("3_sbquf")]
-position = Vector2(718, 175)
+position = Vector2(712, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D23" parent="Terrain" index="25" instance=ExtResource("3_sbquf")]
-position = Vector2(757, 175)
+position = Vector2(750, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D24" parent="Terrain" index="26" instance=ExtResource("3_sbquf")]
-position = Vector2(794, 175)
+position = Vector2(788, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D25" parent="Terrain" index="27" instance=ExtResource("3_sbquf")]
-position = Vector2(831, 175)
+position = Vector2(826, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D26" parent="Terrain" index="28" instance=ExtResource("3_sbquf")]
-position = Vector2(870, 175)
+position = Vector2(864, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D27" parent="Terrain" index="29" instance=ExtResource("3_sbquf")]
-position = Vector2(908, 175)
+position = Vector2(902, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D28" parent="Terrain" index="30" instance=ExtResource("3_sbquf")]
-position = Vector2(944, 175)
+position = Vector2(940, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D29" parent="Terrain" index="31" instance=ExtResource("3_sbquf")]
-position = Vector2(981, 175)
+position = Vector2(977, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D34" parent="Terrain" index="32" instance=ExtResource("3_sbquf")]
-position = Vector2(1019, 175)
+position = Vector2(1015, 175)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D30" parent="Terrain" index="33" instance=ExtResource("3_sbquf")]
-position = Vector2(1051, 323)
+position = Vector2(1054, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D31" parent="Terrain" index="34" instance=ExtResource("3_sbquf")]
-position = Vector2(1013, 323)
+position = Vector2(1016, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D32" parent="Terrain" index="35" instance=ExtResource("3_sbquf")]
-position = Vector2(975, 323)
+position = Vector2(978, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D33" parent="Terrain" index="36" instance=ExtResource("3_sbquf")]
-position = Vector2(936, 323)
+position = Vector2(940, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D35" parent="Terrain" index="37" instance=ExtResource("3_sbquf")]
-position = Vector2(1090, 323)
+position = Vector2(1092, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D36" parent="Terrain" index="38" instance=ExtResource("3_sbquf")]
-position = Vector2(1129, 323)
+position = Vector2(1130, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="Fan2" parent="Terrain" index="39" node_paths=PackedStringArray("vertical_wind") instance=ExtResource("8_cum5r")]
-position = Vector2(897, 323)
+position = Vector2(902, 323)
 scale = Vector2(0.3, 0.3)
 vertical_wind = NodePath("../VerticalWind")
 
 [node name="StaticBody2D37" parent="Terrain" index="40" instance=ExtResource("3_sbquf")]
-position = Vector2(441, 323)
+position = Vector2(449, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D38" parent="Terrain" index="41" instance=ExtResource("3_sbquf")]
-position = Vector2(479, 323)
+position = Vector2(487, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D39" parent="Terrain" index="42" instance=ExtResource("3_sbquf")]
-position = Vector2(517, 323)
+position = Vector2(525, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D40" parent="Terrain" index="43" instance=ExtResource("3_sbquf")]
-position = Vector2(553, 323)
+position = Vector2(561, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D41" parent="Terrain" index="44" instance=ExtResource("3_sbquf")]
-position = Vector2(590, 323)
+position = Vector2(598, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D42" parent="Terrain" index="45" instance=ExtResource("3_sbquf")]
-position = Vector2(781, 323)
+position = Vector2(788, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D43" parent="Terrain" index="46" instance=ExtResource("3_sbquf")]
-position = Vector2(743, 323)
+position = Vector2(750, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D44" parent="Terrain" index="47" instance=ExtResource("3_sbquf")]
-position = Vector2(705, 323)
+position = Vector2(712, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D47" parent="Terrain" index="48" instance=ExtResource("3_sbquf")]
-position = Vector2(820, 323)
+position = Vector2(826, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D48" parent="Terrain" index="49" instance=ExtResource("3_sbquf")]
-position = Vector2(859, 323)
+position = Vector2(864, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D49" parent="Terrain" index="50" instance=ExtResource("3_sbquf")]
-position = Vector2(180, 569)
+position = Vector2(184, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D50" parent="Terrain" index="51" instance=ExtResource("3_sbquf")]
-position = Vector2(218, 569)
+position = Vector2(222, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D51" parent="Terrain" index="52" instance=ExtResource("3_sbquf")]
-position = Vector2(256, 569)
+position = Vector2(260, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D52" parent="Terrain" index="53" instance=ExtResource("3_sbquf")]
-position = Vector2(292, 569)
+position = Vector2(296, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D53" parent="Terrain" index="54" instance=ExtResource("3_sbquf")]
-position = Vector2(329, 569)
+position = Vector2(333, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D54" parent="Terrain" index="55" instance=ExtResource("3_sbquf")]
-position = Vector2(520, 569)
+position = Vector2(523, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D55" parent="Terrain" index="56" instance=ExtResource("3_sbquf")]
-position = Vector2(482, 569)
+position = Vector2(485, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D56" parent="Terrain" index="57" instance=ExtResource("3_sbquf")]
-position = Vector2(444, 569)
+position = Vector2(447, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D57" parent="Terrain" index="58" instance=ExtResource("3_sbquf")]
-position = Vector2(405, 569)
+position = Vector2(409, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D58" parent="Terrain" index="59" instance=ExtResource("3_sbquf")]
-position = Vector2(367, 569)
+position = Vector2(371, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D59" parent="Terrain" index="60" instance=ExtResource("3_sbquf")]
-position = Vector2(559, 569)
+position = Vector2(561, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D61" parent="Terrain" index="61" instance=ExtResource("3_sbquf")]
@@ -322,7 +328,7 @@ position = Vector2(187, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D62" parent="Terrain" index="62" instance=ExtResource("3_sbquf")]
-position = Vector2(226, 425)
+position = Vector2(225, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D63" parent="Terrain" index="63" instance=ExtResource("3_sbquf")]
@@ -334,11 +340,11 @@ position = Vector2(300, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D65" parent="Terrain" index="65" instance=ExtResource("3_sbquf")]
-position = Vector2(339, 425)
+position = Vector2(338, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D66" parent="Terrain" index="66" instance=ExtResource("3_sbquf")]
-position = Vector2(377, 425)
+position = Vector2(376, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D67" parent="Terrain" index="67" instance=ExtResource("3_sbquf")]
@@ -346,7 +352,7 @@ position = Vector2(413, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D68" parent="Terrain" index="68" instance=ExtResource("3_sbquf")]
-position = Vector2(450, 425)
+position = Vector2(449, 425)
 scale = Vector2(0.3, 0.3)
 
 [node name="Grass2" parent="Terrain" index="69" instance=ExtResource("9_j5adx")]
@@ -362,7 +368,7 @@ position = Vector2(980, 388)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D69" parent="Terrain" index="72" instance=ExtResource("3_sbquf")]
-position = Vector2(598, 532)
+position = Vector2(599, 532)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D70" parent="Terrain" index="73" instance=ExtResource("3_sbquf")]
@@ -370,43 +376,43 @@ position = Vector2(637, 532)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D71" parent="Terrain" index="74" instance=ExtResource("3_sbquf")]
-position = Vector2(672, 532)
+position = Vector2(675, 532)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D72" parent="Terrain" index="75" instance=ExtResource("3_sbquf")]
-position = Vector2(711, 532)
+position = Vector2(713, 532)
 scale = Vector2(0.3, 0.3)
 
 [node name="Area2D" parent="Terrain" index="76" instance=ExtResource("10_duhe2")]
-position = Vector2(666, 323)
+position = Vector2(674, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="Area2D2" parent="Terrain" index="77" instance=ExtResource("10_duhe2")]
-position = Vector2(628, 361)
+position = Vector2(636, 361)
 scale = Vector2(0.3, 0.3)
 
 [node name="Area2D3" parent="Terrain" index="78" instance=ExtResource("10_duhe2")]
-position = Vector2(666, 361)
+position = Vector2(674, 361)
 scale = Vector2(0.3, 0.3)
 
 [node name="Area2D4" parent="Terrain" index="79" instance=ExtResource("10_duhe2")]
-position = Vector2(628, 323)
+position = Vector2(636, 323)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D45" parent="Terrain" index="80" instance=ExtResource("3_sbquf")]
-position = Vector2(590, 360)
+position = Vector2(598, 360)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D46" parent="Terrain" index="81" instance=ExtResource("3_sbquf")]
-position = Vector2(628, 398)
+position = Vector2(636, 398)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D60" parent="Terrain" index="82" instance=ExtResource("3_sbquf")]
-position = Vector2(666, 398)
+position = Vector2(674, 398)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D73" parent="Terrain" index="83" instance=ExtResource("3_sbquf")]
-position = Vector2(706, 359)
+position = Vector2(712, 359)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D74" parent="Terrain" index="84" instance=ExtResource("3_sbquf")]
@@ -474,43 +480,43 @@ position = Vector2(1168, 586)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D90" parent="Terrain" index="100" instance=ExtResource("3_sbquf")]
-position = Vector2(749, 569)
+position = Vector2(751, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D91" parent="Terrain" index="101" instance=ExtResource("3_sbquf")]
-position = Vector2(788, 569)
+position = Vector2(789, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D92" parent="Terrain" index="102" instance=ExtResource("3_sbquf")]
-position = Vector2(823, 569)
+position = Vector2(827, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D93" parent="Terrain" index="103" instance=ExtResource("3_sbquf")]
-position = Vector2(862, 569)
+position = Vector2(865, 569)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D94" parent="Terrain" index="104" instance=ExtResource("3_sbquf")]
-position = Vector2(901, 534)
+position = Vector2(903, 534)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D95" parent="Terrain" index="105" instance=ExtResource("3_sbquf")]
-position = Vector2(940, 534)
+position = Vector2(941, 534)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D96" parent="Terrain" index="106" instance=ExtResource("3_sbquf")]
-position = Vector2(1018, 567)
+position = Vector2(1017, 567)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D97" parent="Terrain" index="107" instance=ExtResource("3_sbquf")]
-position = Vector2(1057, 567)
+position = Vector2(1055, 567)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D98" parent="Terrain" index="108" instance=ExtResource("3_sbquf")]
-position = Vector2(1092, 567)
+position = Vector2(1090, 567)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D99" parent="Terrain" index="109" instance=ExtResource("3_sbquf")]
-position = Vector2(1131, 567)
+position = Vector2(1128, 567)
 scale = Vector2(0.3, 0.3)
 
 [node name="Fan3" parent="Terrain" index="110" node_paths=PackedStringArray("vertical_wind") instance=ExtResource("8_cum5r")]
@@ -603,20 +609,20 @@ position = Vector2(-9, 572)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D116" parent="Terrain" index="130" instance=ExtResource("3_sbquf")]
-position = Vector2(141, 503)
+position = Vector2(149, 500)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D117" parent="Terrain" index="131" instance=ExtResource("3_sbquf")]
-position = Vector2(141, 539)
+position = Vector2(149, 538)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D118" parent="Terrain" index="132" instance=ExtResource("3_sbquf")]
-position = Vector2(141, 578)
+position = Vector2(149, 576)
 scale = Vector2(0.3, 0.3)
 
 [node name="VerticalWind3" parent="Terrain" index="133" instance=ExtResource("6_0q54f")]
 wind_force = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/VerticalWind3" index="0"]
-position = Vector2(680.5, 84)
+position = Vector2(674.5, 84)
 shape = SubResource("RectangleShape2D_kivvq")

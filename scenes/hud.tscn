@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://e5t4eqvy2csl"]
+[gd_scene load_steps=6 format=3 uid="uid://e5t4eqvy2csl"]
 
 [ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_vt00n"]
 [ext_resource type="Texture2D" uid="uid://br0ccxolnqw0r" path="res://coffee.png" id="2_ox85r"]
 [ext_resource type="Texture2D" uid="uid://be2vvtpovmwgv" path="res://assets/helmet.png" id="3_jire3"]
 [ext_resource type="Texture2D" uid="uid://upqet4vweex4" path="res://assets/water_drop.png" id="4_1t14a"]
+[ext_resource type="Texture2D" uid="uid://bl65yr6tlumme" path="res://assets/Background_2.png" id="5_2kw13"]
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -15,6 +16,18 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_vt00n")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(580.012, 308.068)
+scale = Vector2(2.35, 2.5)
+texture = ExtResource("5_2kw13")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -22,9 +35,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -52.0
+offset_left = -79.0
 offset_top = -88.0
-offset_right = 52.0
+offset_right = 79.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -108,7 +121,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -116.0
+offset_left = -126.0
 offset_top = 20.0
 offset_right = -25.0
 offset_bottom = 60.0
@@ -149,9 +162,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -53.5
+offset_left = -58.5
 offset_top = 20.0
-offset_right = 53.5
+offset_right = 58.5
 offset_bottom = 60.0
 grow_horizontal = 2
 
