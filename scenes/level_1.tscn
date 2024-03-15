@@ -79,7 +79,7 @@ position = Vector2(107, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D2" parent="Terrain" index="1" instance=ExtResource("3_sbquf")]
-position = Vector2(131, 81)
+position = Vector2(130, 81)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D" parent="Terrain" index="2" instance=ExtResource("3_sbquf")]
@@ -99,7 +99,7 @@ position = Vector2(145, 213)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D7" parent="Terrain" index="6" instance=ExtResource("3_sbquf")]
-position = Vector2(169, 81)
+position = Vector2(168, 81)
 scale = Vector2(0.3, 0.3)
 
 [node name="VerticalWind" parent="Terrain" index="7" instance=ExtResource("6_0q54f")]
@@ -119,7 +119,7 @@ position = Vector2(30, 178)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D8" parent="Terrain" index="10" instance=ExtResource("3_sbquf")]
-position = Vector2(207, 81)
+position = Vector2(206, 81)
 scale = Vector2(0.3, 0.3)
 
 [node name="StaticBody2D9" parent="Terrain" index="11" instance=ExtResource("3_sbquf")]
