@@ -663,7 +663,8 @@ _data = {
 "walk_physicist": SubResource("Animation_osg4u")
 }
 
-[node name="Lemming" type="CharacterBody2D"]
+[node name="Lemming" type="CharacterBody2D" groups=["lemmings"]]
+scale = Vector2(0.3, 0.3)
 collision_mask = 43
 script = ExtResource("1_71xbr")
 

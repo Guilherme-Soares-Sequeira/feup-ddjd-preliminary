@@ -19,5 +19,3 @@ shape = SubResource("RectangleShape2D_o85h0")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.498039, 0.498039, 0.498039, 1)
 mesh = SubResource("QuadMesh_de1v8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

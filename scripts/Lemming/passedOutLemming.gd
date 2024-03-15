@@ -1,8 +1,8 @@
 class_name PassedOutLemming extends RigidBody2D
 
 # Constants
-const HEIGHT: int = 128
-const WIDTH: int = 100
+const HEIGHT: int = 102
+const WIDTH: int = 60
 
 # Fields
 
@@ -23,9 +23,9 @@ func scale_sprite():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	@warning_ignore("integer_division")
-	collision_shape.shape.extents = Vector2(WIDTH/8, HEIGHT/8)
-	scale_sprite()
+	#@warning_ignore("integer_division")
+	#collision_shape.shape.extents = Vector2(WIDTH/8, HEIGHT/8)
+	#scale_sprite()
 	self.set_pickable(true)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

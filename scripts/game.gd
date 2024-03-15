@@ -11,6 +11,7 @@ var UI: CanvasLayer
 var hud: Hud
 var level_container: Node2D
 var main_menu: MainMenu
+var win_screen: Control
 
 # Functions
 func load_main_menu():
@@ -27,6 +28,7 @@ func load_level(level_num: int):
 
 	self.main_menu.visible = false
 	self.hud.visible = true
+	self.win_screen.visible = false
 		
 	var level: Level = int_to_level[level_num].instantiate()
 	
@@ -49,6 +51,7 @@ func load_level(level_num: int):
 	level.update_mechanics.connect(self.hud.set_current_mechanic)
 	level.update_physics_bachelors.connect(self.hud.set_current_physics_bachelor)
 	level.update_credit.connect(self.hud.set_current_credit)
+	level.update_escaped.connect(self.hud.set_current_escaped)
 	
 	# Connect hud to level
 	self.hud.select_coffee.connect(level.select_coffee)
@@ -56,7 +59,7 @@ func load_level(level_num: int):
 	self.hud.select_physics_bachelor.connect(level.select_physics_bachelor)
 	
 	# Connect level to Game
-	level.level_win.connect(self.load_main_menu)
+	level.level_win.connect(self.load_win_screen)
 	level.level_exit.connect(self.load_main_menu)	
 	
 	# Add level to tree
@@ -68,5 +71,24 @@ func _ready():
 	self.hud = %hud
 	self.level_container = %LevelContainer
 	self.main_menu = %MainMenu 
+	self.win_screen = %WinScreen
 	
 	self.main_menu.play_level_1.connect(self.load_level)
+
+func load_win_screen():
+	for child in self.level_container.get_children():
+		child.queue_free()
+	
+	self.main_menu.visible = false
+	hud.visible = false
+	win_screen.visible = true
+	
+func _on_won_button_pressed():
+	self.main_menu.visible = true
+	hud.visible = false
+	win_screen.visible = false
+
+func _process(_delta):
+	if Input.is_action_just_pressed("reload_level_1"):
+		load_level(1)
+	

@@ -1,4 +1,4 @@
 class_name Tool
 
-func handle_enter_water(terrain, water):
+func get_tool_name():
 	pass

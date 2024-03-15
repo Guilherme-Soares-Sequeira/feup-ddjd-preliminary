@@ -2,6 +2,7 @@ class_name Level extends Node2D
 
 signal level_win()
 signal level_exit()
+signal update_escaped(new_num: int)
 signal update_coffees(new_num: int)
 signal update_mechanics(new_num: int)
 signal update_physics_bachelors(new_num: int)
@@ -24,6 +25,7 @@ func get_needed_escape() -> int:
 
 func increase_current_escaped() -> void:
 	self.current_escaped += 1
+	self.update_escaped.emit(self.current_escaped)
 	
 	if (self.current_escaped >= self.needed_escape):
 		self.level_win.emit()

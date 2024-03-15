@@ -10,5 +10,6 @@ func _process(_delta):
 
 
 func _on_passout_area_entered(body):
+	print("body entered grass")
 	var lemming = body as Lemming
 	lemming.pass_out()

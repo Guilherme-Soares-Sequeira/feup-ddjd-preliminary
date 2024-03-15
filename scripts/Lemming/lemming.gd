@@ -81,11 +81,9 @@ func apply_horizontal_friction(delta: float):
 # Environment Handlers
 
 func handle_entered_vertical_wind():
-	print("entered vertical wind")
 	self.state_machine.handle_entered_vertical_wind()
 
 func handle_exited_vertical_wind():
-	print("exited vertical wind")
 	self.state_machine.handle_exited_vertical_wind()
 
 func handle_pushed_by_vertical_wind(vertical_direction: int, wind_force: int) -> void:
@@ -95,10 +93,12 @@ func handle_pushed_by_horizontal_wind(horizontal_direction: int, wind_force: int
 	self.state_machine.handle_pushed_by_horizontal_wind(horizontal_direction, wind_force)
 
 func handle_enter_water(water):
-	var terrain = level.get_terrain_node()
+	print("handle enter water, tool = ", self.tool)
 	if self.tool != null and self.tool.has_method("handle_enter_water"):
+		var terrain = level.get_terrain_node()	
 		self.tool.handle_enter_water(terrain, water)
 	else:
+		print("pass out ")
 		pass_out()
 
 func handle_exit():
@@ -157,8 +157,8 @@ func pass_out():
 	
 	get_parent().add_child(passed_out_lemming)
 	passed_out_lemming.global_position = self.global_position
-	passed_out_lemming.apply_central_impulse(Vector2(0, -0.2))
-	passed_out_lemming.angular_velocity = 2 * direction.x
+	passed_out_lemming.apply_central_impulse(Vector2(0, 30))
+	passed_out_lemming.angular_velocity = 20 * direction.x
 	
 	# Remove the lemming that just passed out
 	self.queue_free()
@@ -166,7 +166,6 @@ func pass_out():
 # Called when the lemming is added to the node tree
 func _ready():
 	#main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
-	#scale_sprite()
 	self.animation.play("sleep")
 	
 	self.set_pickable(true) # Allows the lemming to be clicked

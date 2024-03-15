@@ -16,4 +16,5 @@ func _on_body_entered(body):
 	if not (is_instance_of(body, Lemming)):
 		return
 	self.lemming_exited.emit()
+	print("lemming exited")	
 	body.handle_exit()

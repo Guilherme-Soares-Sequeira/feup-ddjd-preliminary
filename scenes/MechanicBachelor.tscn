@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Tools/mechanic_bachelor.gd" id="1_gsi0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8cteh"]
-size = Vector2(160, 200)
+size = Vector2(240, 280)
 
 [node name="MechanicBachelor" type="Area2D"]
 collision_layer = 0
