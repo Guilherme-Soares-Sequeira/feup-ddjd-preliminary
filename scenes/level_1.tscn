@@ -25,9 +25,8 @@ exit = NodePath("Exit/Exit2")
 cheatsheets = [NodePath("Cheatsheets/Cheatsheet"), NodePath("Cheatsheets/Cheatsheet2"), NodePath("Cheatsheets/Cheatsheet3")]
 lemmings = [NodePath("Lemmings/Lemming"), NodePath("Lemmings/Lemming2"), NodePath("Lemmings/Lemming3"), NodePath("Lemmings/Lemming4"), NodePath("Lemmings/Lemming5")]
 needed_credit = 100
-needed_escape = 2
 initial_coffees = 5
-initial_mechanics = 2
+initial_mechanics = 3
 initial_physics_bachelors = 2
 
 [node name="Cheatsheet" parent="Cheatsheets" index="0" instance=ExtResource("2_xw5sk")]

@@ -7,7 +7,7 @@ class_name Fan extends StaticBody2D
 
 func handle_mechanic() -> void:
 	if not vertical_wind == null:
-		mesh_instance.modulate = Color(0.3, 0.3, 0.3)
+		mesh_instance.modulate = Color(0.3, 0.1, 0.1)
 		
 		#sprite.load("res://assets/vfan.png")
 		vertical_wind.queue_free()
