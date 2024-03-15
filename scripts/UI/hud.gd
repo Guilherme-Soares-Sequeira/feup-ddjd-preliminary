@@ -19,6 +19,7 @@ func get_current_credit() -> int:
 	return int(current_credit.text)
 
 func set_current_credit(curr_credit: int) -> void:
+	print(curr_credit)
 	current_credit.text = str(curr_credit)
 
 func get_needed_credit() -> int:
@@ -43,6 +44,7 @@ func get_current_coffee() -> int:
 	return int(coffee_label.text)
 
 func set_current_coffee(curr_coffee: int) -> void:
+	print(curr_coffee)
 	coffee_label.text = str(curr_coffee)
 	
 func _on_coffee_button_pressed():

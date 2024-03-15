@@ -27,12 +27,18 @@ func physics_update(delta: float):
 
 	lemming.update_x_velocity()
 	lemming.apply_horizontal_friction(delta)
+	print(lemming.is_mechanic)
+	if(lemming.is_mechanic):
+		lemming.animation.play("walk_mechanic")
+	elif(lemming.is_physicist):
+		lemming.animation.play("walk_physicist")
+	else:
+		lemming.animation.play("walk")
 	#print(lemming.get_node_or_null("AnimationPlayer"))
 
 
 func onEnter():
-	lemming.set_speed(max(lemming.speed, lemming.DEFAULT_SPEED))
-	lemming.animation.play("walk")	
+	lemming.set_speed(max(lemming.speed, lemming.DEFAULT_SPEED))	
 
 func onExit():
 	pass

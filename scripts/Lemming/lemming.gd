@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const HEIGHT: int = 128
 const WIDTH: int = 100
 const DEFAULT_SPEED: float = 100.0
-const DEFAULT_JUMP_FORCE: float = -788.0
+const DEFAULT_JUMP_FORCE: float = -500.0
 
 # Fields
 @export var level: Level
@@ -22,6 +22,8 @@ var jump_force: float = DEFAULT_JUMP_FORCE
 var floating = false;
 var exited_floating = false;
 var is_on_water = false;
+var is_mechanic = false;
+var is_physicist = false;
 
 var initial_state: State = AsleepState.new(self)
 var state_machine: StateMachine = StateMachine.new(initial_state)
@@ -131,11 +133,13 @@ func apply_tool(new_tool: Level.tools):
 			if level.current_physics_bachelors <= 0 || self.tool != null || self.is_sleeping:
 				return
 			self.tool = PhysicsBachelor.new()
+			self.is_physicist = true
 			physics_used.emit()
 		Level.tools.MECHANIC:
 			if level.current_mechanics <= 0 || self.tool != null || self.is_sleeping:
 				return
 			self.tool = Tool.new()
+			self.is_mechanic = true
 			var mechanic_bachelor = MechanicBachelorScene.instantiate()
 			self.add_child(mechanic_bachelor)
 			mechanic_used.emit()
@@ -153,8 +157,8 @@ func pass_out():
 	
 	get_parent().add_child(passed_out_lemming)
 	passed_out_lemming.global_position = self.global_position
-	passed_out_lemming.apply_central_impulse(Vector2(0, -100))
-	passed_out_lemming.angular_velocity = 5.7 * direction.x
+	passed_out_lemming.apply_central_impulse(Vector2(0, -0.2))
+	passed_out_lemming.angular_velocity = 2 * direction.x
 	
 	# Remove the lemming that just passed out
 	self.queue_free()
@@ -163,6 +167,7 @@ func pass_out():
 func _ready():
 	#main_body.shape.extents = Vector2(WIDTH/2.0, HEIGHT/2.0)
 	#scale_sprite()
+	self.animation.play("sleep")
 	
 	self.set_pickable(true) # Allows the lemming to be clicked
 

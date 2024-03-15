@@ -8,10 +8,10 @@ signal update_physics_bachelors(new_num: int)
 signal update_credit(new_num: int)
 
 
+
 @export var exit: Exit
 @export var cheatsheets: Array[Cheatsheet]
 @export var lemmings: Array[Lemming]
-
 @export var needed_credit: int
 var current_credit: int = 0
 @export var needed_escape: int = 1
@@ -85,6 +85,7 @@ func set_current_physics_bachelors(new_physics_bachelors: int) -> void:
 
 func decrease_current_coffees() -> void:
 	self.current_coffees -= 1
+	print(self.current_coffees)
 	self.update_coffees.emit(self.current_coffees)
 
 func decrease_current_mechanics() -> void:
@@ -99,6 +100,7 @@ func decrease_current_physics_bachelors() -> void:
 
 func increase_credit(credit: int):
 	self.current_credit += credit
+	print(self.current_credit)
 	
 	if (self.current_credit >= self.needed_credit):
 		self.exit.activate()
@@ -120,15 +122,16 @@ func get_terrain_node() -> Node2D:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.current_coffees = self.initial_coffees
-	current_mechanics = initial_mechanics
-	current_physics_bachelors = initial_physics_bachelors
+	self.current_mechanics = self.initial_mechanics
+	self.current_physics_bachelors = self.initial_physics_bachelors
 	
 	for cs: Cheatsheet in self.cheatsheets:
 		cs.picked_up.connect(increase_credit)
 	
 	for lem: Lemming in self.lemmings:
+		print(lem.coffee_used)
 		lem.coffee_used.connect(self.decrease_current_coffees)
 		lem.mechanic_used.connect(self.decrease_current_mechanics)
-		lem.physics_used.connect(decrease_current_physics_bachelors)
+		lem.physics_used.connect(self.decrease_current_physics_bachelors)
 	
 	exit.lemming_exited.connect(increase_current_escaped)

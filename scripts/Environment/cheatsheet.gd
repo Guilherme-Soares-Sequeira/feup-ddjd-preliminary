@@ -9,5 +9,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_body_entered(_body):
+	print(self.credit_score)
 	self.picked_up.emit(self.credit_score)
 	queue_free()

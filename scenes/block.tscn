@@ -1,9 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg6q1pcf355lh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwgrj"]
-size = Vector2(128, 128)
+[ext_resource type="Texture2D" uid="uid://dq0ol8nebkak5" path="res://assets/terrain.png" id="1_vh07j"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_pbv1x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwgrj"]
 size = Vector2(128, 128)
 
 [node name="StaticBody2D" type="StaticBody2D"]
@@ -13,7 +12,5 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_lwgrj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Sprite2D"]
-modulate = Color(0.780392, 0.592157, 0.596078, 1)
-mesh = SubResource("QuadMesh_pbv1x")
+position = Vector2(0, 1)
+texture = ExtResource("1_vh07j")
