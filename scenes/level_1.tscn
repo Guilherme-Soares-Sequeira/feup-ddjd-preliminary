@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wrsfp2i3ufvb"]
+[gd_scene load_steps=16 format=3 uid="uid://wrsfp2i3ufvb"]
 
 [ext_resource type="PackedScene" uid="uid://b0okpbjwmpflm" path="res://scenes/level.tscn" id="1_mouc3"]
 [ext_resource type="Texture2D" uid="uid://bl65yr6tlumme" path="res://assets/Background_2.png" id="2_1htt3"]
@@ -15,8 +15,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0rkr"]
 size = Vector2(126.334, 308)
 
+[sub_resource type="QuadMesh" id="QuadMesh_q42g3"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u15pf"]
-size = Vector2(18.5, 81)
+size = Vector2(18.5, 113.833)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kivvq"]
 size = Vector2(33, 138)
@@ -38,7 +40,7 @@ texture = ExtResource("2_1htt3")
 [node name="Cheatsheet" parent="Cheatsheets" index="0" instance=ExtResource("2_xw5sk")]
 position = Vector2(174, 354)
 scale = Vector2(0.3, 0.3)
-credit_score = 101
+credit_score = 33
 
 [node name="Cheatsheet2" parent="Cheatsheets" index="1" instance=ExtResource("2_xw5sk")]
 position = Vector2(656, 367)
@@ -46,7 +48,7 @@ scale = Vector2(0.3, 0.3)
 credit_score = 34
 
 [node name="Cheatsheet3" parent="Cheatsheets" index="2" instance=ExtResource("2_xw5sk")]
-position = Vector2(663, 22)
+position = Vector2(656, 22)
 scale = Vector2(0.3, 0.3)
 credit_score = 33
 
@@ -108,6 +110,12 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(904, 257)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_o0rkr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Terrain/VerticalWind" index="1"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(904, 257.125)
+scale = Vector2(38.0001, 92.25)
+mesh = SubResource("QuadMesh_q42g3")
 
 [node name="Fan" parent="Terrain" index="8" node_paths=PackedStringArray("vertical_wind") instance=ExtResource("8_cum5r")]
 position = Vector2(674, 175)
@@ -531,6 +539,12 @@ position = Vector2(980, 466)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_o0rkr")
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Terrain/VerticalWind2" index="1"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(980, 466)
+scale = Vector2(38.0001, 92.25)
+mesh = SubResource("QuadMesh_q42g3")
+
 [node name="Fan4" parent="Terrain" index="112" node_paths=PackedStringArray("horizontal_wind") instance=ExtResource("8_cum5r")]
 position = Vector2(186, 387)
 scale = Vector2(0.3, 0.3)
@@ -540,9 +554,15 @@ horizontal_wind = NodePath("../HorizontalWind2")
 wind_force = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/HorizontalWind2" index="0"]
-position = Vector2(208, 392)
+position = Vector2(208, 387.075)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_u15pf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Terrain/HorizontalWind2" index="1"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(208.5, 387)
+scale = Vector2(5.00002, 34)
+mesh = SubResource("QuadMesh_q42g3")
 
 [node name="StaticBody2D100" parent="Terrain" index="114" instance=ExtResource("3_sbquf")]
 position = Vector2(-9, 7)
@@ -626,3 +646,9 @@ wind_force = 400
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/VerticalWind3" index="0"]
 position = Vector2(674.5, 84)
 shape = SubResource("RectangleShape2D_kivvq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Terrain/VerticalWind3" index="1"]
+modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(674.5, 84.0625)
+scale = Vector2(33, 138.125)
+mesh = SubResource("QuadMesh_q42g3")
